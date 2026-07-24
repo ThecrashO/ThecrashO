@@ -1,0 +1,35 @@
+﻿[
+    {
+        "id": "ai-engineering-roadmap",
+        "name": "AI Engineering Roadmap",
+        "type": "Notion Template",
+        "icon": "bi-gear",
+        "priceUsd": 0,
+        "priceMmk": 0,
+        "button": "Get Template",
+        "link": "https://app.notion.com/p/36969338789680bdb6d1eca857b158bb?v=36969338789680849663000c314ad6b5&source=copy_link",
+        "desc": "A step-by-step AI engineering self-study roadmap with modules from Python basics to Agentic AI."
+    },
+    {
+        "id": "carnegie-principles",
+        "name": "Carnegie Principles",
+        "type": "Notion Template",
+        "icon": "bi-journal-text",
+        "priceUsd": 0,
+        "priceMmk": 0,
+        "button": "Get Template",
+        "link": "https://stump-wallflower-3d2.notion.site/Carnegie-Principles-Use-Count-Buttons-3506933878968003b03ffe9a8172fa3e?source=copy_link",
+        "desc": "A social skills tracker based on Dale Carnegie's 30 principles."
+    },
+    {
+        "id": "the-daily-stoic",
+        "name": "The Daily Stoic",
+        "type": "Notion Template",
+        "icon": "bi-book",
+        "priceUsd": 0,
+        "priceMmk": 0,
+        "button": "Get Template",
+        "link": "https://stump-wallflower-3d2.notion.site/350693387896802da4bfdd6a7497c14c?v=35069338789681f7bc81000c8fc49253&source=copy_link",
+        "desc": "A daily Stoicism practice template with explanations, date and comments fields, and a Done button."
+    }
+]

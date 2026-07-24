@@ -1,0 +1,14 @@
+[
+    {
+        "id": "portfolio-website",
+        "title": "Portfolio Website",
+        "tag": "Web",
+        "tagIcon": "bi-code-square",
+        "categories": ["web"],
+        "desc": "Personal developer portfolio for TheprimeV — features a clean home page highlighting skills, featured projects, and social links; includes a markdown-powered blog with a generated manifest, a projects showcase, a reusable store section, and a downloadable resume (assets/docs/cv.pdf).",
+        "links": {
+            "github": "https://github.com/TheprimeV/TheprimeV",
+            "demo": "https://theprime-v.vercel.app/"
+        }
+    }
+]

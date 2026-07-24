@@ -1,0 +1,7 @@
+{
+  "name": "theprimev-portfolio",
+  "private": true,
+  "scripts": {
+    "blog": "node scripts/generate-blog-manifest.js"
+  }
+}

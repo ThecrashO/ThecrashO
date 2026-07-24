@@ -1,0 +1,51 @@
+﻿[
+    {
+        "id": "webdevelopment",
+        "group": "core",
+        "label": "Web Development",
+        "icon": "bi-code-slash",
+        "description": "Full-stack web development and modern web technologies"
+    },
+    {
+        "id": "aiautomation",
+        "group": "core",
+        "label": "AI Automation",
+        "icon": "bi-lightning-charge",
+        "description": "AI-powered workflows, agents, and process automation"
+    },
+    {
+        "id": "vibecoding",
+        "group": "core",
+        "label": "Vibe Coding",
+        "icon": "bi-braces-asterisk",
+        "description": "AI-assisted rapid software development"
+    },
+    {
+        "id": "english",
+        "group": "core",
+        "label": "English",
+        "icon": "bi-translate",
+        "description": "English communication and professional language skills"
+    },
+    {
+        "id": "chinese",
+        "group": "core",
+        "label": "Chinese",
+        "icon": "bi-translate",
+        "description": "Chinese language learning and communication skills"
+    },
+    {
+        "id": "notion",
+        "group": "tools",
+        "label": "Notion",
+        "icon": "bi-journal-text",
+        "description": "Workspace management and knowledge systems"
+    },
+    {
+        "id": "n8n",
+        "group": "tools",
+        "label": "n8n",
+        "icon": "bi-diagram-3",
+        "description": "Workflow automation platform"
+    }
+]
