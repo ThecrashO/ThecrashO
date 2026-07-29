@@ -1,62 +1,64 @@
-# TheprimeV Portfolio
+# Hi, I'm Pyae Sone Phyo (TheprimeV)
 
-A modern personal portfolio website showcasing my projects, skills, blog, and digital products.
+A web developer and AI workflow builder passionate about creating modern web applications, automation systems, and creative digital experiences.
 
-![Preview](assets/images/preview.png)
+![Portfolio Preview](assets/images/preview.png)
 
-## Features
+## About
 
-- Responsive portfolio website
-- Dynamic projects gallery
-- Markdown-powered blog
-- Digital products store
-- Dark & Light theme
-- JSON-driven content management
+This repository contains my personal portfolio website, where I showcase my projects, technical skills, blog articles, and digital products.
+
+My current focus includes:
+
+- Web Development
+- AI Automation
+- Workflow Design
+- UI/UX
+- Content Creation
+
+## Featured Projects
+
+- Publio – Multi-platform social media publishing platform
+- Order2Me – University canteen ordering system
+- AI Automation Workflows
+- Bootstrap Components
 
 ## Tech Stack
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
-- JSON
+Frontend
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
 
-## Project Structure
+Backend & Database
+- Supabase
+- Node.js
 
-```text
-css/
-js/
-data/
-blog/
-assets/
-scripts/
-```
+Tools
+- Git & GitHub
+- Docker
+- n8n
+- Notion
 
-## Getting Started
+## Run Locally
 
 ```bash
 python -m http.server 8000
 ```
 
-Open:
+Then open:
 
 ```
 http://localhost:8000
 ```
 
-## Roadmap
+## Connect With Me
 
-- [x] Portfolio Homepage
-- [x] Projects Page
-- [x] Blog System
-- [x] Digital Store
-- [ ] Search
-- [ ] CMS
-- [ ] Multi-language
+- GitHub: github.com/theprimev
+- Telegram: @theprimev
+- Email: theprimev0@gmail.com
 
-## Contact
+## License
 
-Telegram: @theprimev
-
-GitHub: github.com/theprimev
-
-Email: theprimev@gmail.com
+MIT
