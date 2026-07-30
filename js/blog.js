@@ -99,8 +99,8 @@ function renderArticle(post) {
                     <h2 class="blog-article-title">${post.title}</h2>
                     <div class="blog-article-meta">
                         <div class="blog-author-block">
-                            <img src="assets/images/avatar.png" alt="TheprimeV avatar" class="blog-author-avatar" />
-                            <span class="blog-author">@theprimeV</span>
+                            <img src="assets/images/avatar.png" alt="ThecrashO avatar" class="blog-author-avatar" />
+                            <span class="blog-author">@thecrashO</span>
                         </div>
                         <span class="blog-meta-separator">•</span>
                         <span>${post.meta}</span>
@@ -120,7 +120,7 @@ function renderArticle(post) {
 function copyBlogArticle() {
     const title = document.querySelector('.blog-article-title')?.textContent || 'Blog Article';
     const body = document.querySelector('.blog-article-content')?.innerText || '';
-    const text = `${title}\n\n${body.replace('Copy article', '').trim()}\n\n— @theprimeV`;
+    const text = `${title}\n\n${body.replace('Copy article', '').trim()}\n\n— @thecrashO`;
 
     navigator.clipboard.writeText(text).then(() => {
         const btn = document.querySelector('.copy-article-btn');

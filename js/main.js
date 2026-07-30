@@ -110,7 +110,7 @@ function sendTelegram() {
         `${msg}`
     );
 
-    window.open(`https://t.me/theprimev?text=${text}`, '_blank');
+    window.open(`https://t.me/thecrashO_Official?text=${text}`, '_blank');
 }
 
 

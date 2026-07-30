@@ -1,74 +1,64 @@
-# TheprimeV Portfolio
+# Hi, I'm Pyae Sone Phyo (ThecrashO)
 
-Personal developer portfolio and creative tech showcase website for **TheprimeV** (`Pyae Sone Phyo`). Built with vanilla HTML, CSS, JavaScript, and dynamic JSON-driven data stores.
+A web developer and AI workflow builder passionate about creating modern web applications, automation systems, and creative digital experiences.
 
----
+![Portfolio Preview](assets/images/preview.png)
 
-## 🌟 Key Features
+## About
 
-- **🏠 Hero & Profile**: Clean landing page highlighting core skills, social handles (`@theprimev`), contact endpoints, and downloadable CV (`assets/docs/cv.pdf`).
-- **🛠️ Interactive Skills & Tools**: Categorized grid for Core Skills and Development Tools loaded dynamically from `data/skills.json`.
-- **💻 Projects Showcase**: Filterable project gallery (`projects.html`) powered by `data/projects.json` supporting category filters (*Web*, *Automation*, *System*).
-- **📝 Markdown-Powered Blog**: Article rendering engine (`blog.html` & `js/blog.js`) driven by markdown files in `blog/` and a generated JSON manifest (`data/blog.json`).
-- **🛒 Digital Store**: Products & services catalog (`data/store.json`) featuring dynamic currency toggling between **USD ($)** and **MMK (K)**.
-- **🌙 Dark / Light Theme**: Instant theme switching backed by `localStorage` persistence and system color preference fallback.
+This repository contains my personal portfolio website, where I showcase my projects, technical skills, blog articles, and digital products.
 
----
+My current focus includes:
 
-## 📁 Repository Structure
+- Web Development
+- AI Automation
+- Workflow Design
+- UI/UX
+- Content Creation
 
-```
-.
-├── index.html                  # Main portfolio homepage (Hero, Skills, Store, Contact)
-├── projects.html               # Dedicated projects gallery page with category filtering
-├── blog.html                   # Blog page with article reader & listing view
-├── css/
-│   └── style.css               # Main styling rules and theme design system
-├── js/
-│   ├── main.js                 # Global logic (Navigation, Theme, Currency toggle, Data loaders)
-│   └── blog.js                 # Markdown parser and blog loader
-├── data/
-│   ├── projects.json           # Projects metadata and external links
-│   ├── blog.json               # Generated manifest of blog posts
-│   ├── skills.json             # Core skills and tools list
-│   └── store.json              # Store products, templates, and pricing
-├── blog/                       # Markdown article files (.md)
-├── scripts/
-│   ├── generate-blog-manifest.js   # Node.js script to scan blog/*.md and update data/blog.json
-│   └── generate-blog-manifest.ps1  # PowerShell script for manifest generation
-└── assets/
-    ├── docs/cv.pdf             # Downloadable resume
-    └── images/                 # Avatar and project graphics
-```
+## Featured Projects
 
----
+- Publio – Multi-platform social media publishing platform
+- Order2Me – University canteen ordering system
+- AI Automation Workflows
+- Bootstrap Components
 
-## 🚀 Getting Started
+## Tech Stack
 
-### Local Development
+Frontend
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
 
-No build pipeline required. You can serve the static files locally using any web server:
+Backend & Database
+- Supabase
+- Node.js
+
+Tools
+- Git & GitHub
+- Docker
+- n8n
+- Notion
+
+## Run Locally
 
 ```bash
-# Using Python 3
 python -m http.server 8000
 ```
-Then visit `http://localhost:8000` in your browser.
 
-### Blog Manifest Generation
+Then open:
 
-When adding or updating markdown files in `blog/`, regenerate `data/blog.json`:
-
-```bash
-npm run blog
-# or
-node scripts/generate-blog-manifest.js
+```
+http://localhost:8000
 ```
 
----
+## Connect With Me
 
-## 📬 Contact & Socials
+- GitHub: github.com/thecrasho
+- Telegram: @thecrashO
+- Email: thecrasho99@gmail.com
 
-- **Telegram**: [@theprimev](https://t.me/theprimev)
-- **GitHub**: [TheprimeV](https://github.com/theprimev)
-- **Email**: theprimev@gmail.com
+## License
+
+MIT
