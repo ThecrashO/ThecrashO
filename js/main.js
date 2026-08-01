@@ -110,7 +110,7 @@ function sendTelegram() {
         `${msg}`
     );
 
-    window.open(`https://t.me/thecrashO_Official?text=${text}`, '_blank');
+    window.open(`https://t.me/thecrashO?text=${text}`, '_blank');
 }
 
 
@@ -215,7 +215,7 @@ async function renderProjects() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     // Apply saved theme (or system preference) on load
     try {
         let theme = localStorage.getItem('theme');
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (filterTags.length === 0) return;
 
     filterTags.forEach(tag => {
-        tag.addEventListener('click', function() {
+        tag.addEventListener('click', function () {
             filterTags.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
             filterProjects();
