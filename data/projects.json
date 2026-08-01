@@ -12,5 +12,20 @@
             "github": "https://github.com/ThecrashO/ThecrashO",
             "demo": "https://thecrasho.vercel.app/"
         }
+    },
+    {
+        "id": "publio",
+        "title": "Publio",
+        "tag": "Web App",
+        "tagIcon": "bi-share-fill",
+        "categories": [
+            "web",
+            "automation"
+        ],
+        "desc": "Write once, publish everywhere. Publio is a self-hosted social media management platform that enables creators and businesses to publish content across multiple social networks from one unified dashboard.",
+        "links": {
+            "github": "https://github.com/ThecrashO/Publio",
+            "demo": "https://publio-p.vercel.app/"
+        }
     }
 ]
