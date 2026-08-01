@@ -2,7 +2,7 @@
 
 A web developer and AI workflow builder passionate about creating modern web applications, automation systems, and creative digital experiences.
 
-![Portfolio Preview](assets/images/preview.png)
+![Portfolio Preview](assets/images/preview.png) 
 
 ## About
 
