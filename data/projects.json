@@ -4,8 +4,10 @@
         "title": "Portfolio Website",
         "tag": "Web",
         "tagIcon": "bi-code-square",
-        "categories": ["web"],
-        "desc": "Personal developer portfolio for ThecrashO — features a clean home page highlighting skills, featured projects, and social links; includes a markdown-powered blog with a generated manifest, a projects showcase, a reusable store section, and a downloadable resume (assets/docs/cv.pdf).",
+        "categories": [
+            "web"
+        ],
+        "desc": "A personal hub where I showcase my AI projects, web applications, technical insights, learning resources, and creative work. Everything is connected in one place to document my journey and share what I build.",
         "links": {
             "github": "https://github.com/ThecrashO/ThecrashO",
             "demo": "https://thecrasho.vercel.app/"
