@@ -41,18 +41,6 @@ Tools
 - n8n
 - Notion
 
-## Run Locally
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```
-http://localhost:8000
-```
-
 ## Connect With Me
 
 - GitHub: github.com/thecrasho
