@@ -27,5 +27,20 @@
             "github": "https://github.com/ThecrashO/Publio",
             "demo": "https://publio-p.vercel.app/"
         }
+    },
+    {
+        "id": "crash-archi",
+        "title": "Crash-Archi Workspace",
+        "tag": "AI System",
+        "tagIcon": "bi-diagram-3",
+        "categories": [
+            "ai",
+            "automation",
+            "architecture"
+        ],
+        "desc": "Crash-Archi is an AI-ready project architecture workspace designed to transform raw ideas into structured, reviewable, and development-ready project packages. It focuses on understanding problems, defining architecture, planning solutions, and preparing clear instructions for AI-assisted development.",
+        "links": {
+            "github": "https://github.com/ThecrashO/Crash-Archi"
+        }
     }
 ]
