@@ -58,5 +58,35 @@
             "github": "https://github.com/ThecrashO/make-lead-qualification-agent/",
             "demo": "https://us2.make.com/public/shared-scenario/TdQgkyCOjN2/lead-qualification-agent"
         }
+    },
+    {
+        "id": "ai-knowledge-support-agent",
+        "title": "AI Knowledge Support Agent",
+        "tag": "Automation",
+        "tagIcon": "bi-chat-dots-fill",
+        "categories": [
+            "ai",
+            "automation"
+        ],
+        "desc": "An AI-powered Telegram customer support agent built with Make.com and Google Gemini. It combines Retrieval-Augmented Generation (RAG), conversational memory, and web search fallback to answer customer questions using company documentation while providing fast, accurate, and natural responses.",
+        "links": {
+            "github": "https://github.com/ThecrashO/make-knowledge-support-agent",
+            "demo": "https://us2.make.com/public/shared-scenario/GZmmJTjBnkz/knowledge-support-agent"
+        }
+    },
+    {
+        "id": "ai-telegram-invoice-extractor",
+        "title": "AI Telegram Invoice Extractor Agent",
+        "tag": "Automation",
+        "tagIcon": "bi-receipt",
+        "categories": [
+            "ai",
+            "automation"
+        ],
+        "desc": "An AI-powered Telegram automation built with Make.com that extracts invoice data from photos and PDFs using AI OCR, stores structured records in Google Sheets, and instantly sends a confirmation summary back to the user.",
+        "links": {
+            "github": "https://github.com/ThecrashO/make-telegram-invoice-extractor",
+            "demo": "https://us2.make.com/public/shared-scenario/SyhefzqLTHO/invoice-extractor-agent"
+        }
     }
 ]
