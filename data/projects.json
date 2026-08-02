@@ -55,7 +55,7 @@
         "desc": "An AI-powered B2B lead qualification workflow built with Make.com. It automatically researches companies, evaluates inbound leads against Ideal Customer Profile (ICP) criteria using AI, updates Google Sheets with qualification scores, and notifies the sales team via Telegram for high-priority opportunities.",
         "links": {
             "github": "https://github.com/ThecrashO/make-lead-qualification-agent/",
-            "demo": "https://eu2.make.com/1753190/scenarios/3035012/edit"
+            "demo": "https://us2.make.com/public/shared-scenario/TdQgkyCOjN2/lead-qualification-agent"
         }
     }
 ]
