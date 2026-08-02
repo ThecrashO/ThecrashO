@@ -42,5 +42,20 @@
         "links": {
             "github": "https://github.com/ThecrashO/Crash-Archi"
         }
+    },
+    {
+        "id": "ai-lead-qualification-agent",
+        "title": "AI Lead Qualification Agent",
+        "tag": "Automation",
+        "tagIcon": "bi-robot",
+        "categories": [
+            "ai",
+            "automation"
+        ],
+        "desc": "An AI-powered B2B lead qualification workflow built with Make.com. It automatically researches companies, evaluates inbound leads against Ideal Customer Profile (ICP) criteria using AI, updates Google Sheets with qualification scores, and notifies the sales team via Telegram for high-priority opportunities.",
+        "links": {
+            "github": "https://github.com/ThecrashO/make-lead-qualification-agent/",
+            "demo": "https://eu2.make.com/1753190/scenarios/3035012/edit"
+        }
     }
 ]
