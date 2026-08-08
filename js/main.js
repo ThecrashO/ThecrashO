@@ -237,8 +237,13 @@ async function renderProjects() {
 
         container.innerHTML = projects.map((project) => {
             const links = Object.entries(project.links || {}).map(([key, value]) => {
-                const label = key === 'github' ? 'GitHub' : key === 'demo' ? 'Live Demo' : key;
-                const icon = key === 'github' ? 'bi-github' : 'bi-box-arrow-up-right';
+                const label = key === 'github'   ? 'GitHub'
+                            : key === 'demo'     ? 'Live Demo'
+                            : key === 'template' ? 'Use Template'
+                            : key;
+                const icon  = key === 'github'   ? 'bi-github'
+                            : key === 'template' ? 'bi-puzzle-fill'
+                            : 'bi-box-arrow-up-right';
                 return `<a href="${value}" target="_blank" rel="noopener noreferrer" class="project-link"><i class="bi ${icon}"></i> ${label}</a>`;
             }).join('');
 
