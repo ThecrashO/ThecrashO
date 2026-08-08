@@ -162,26 +162,69 @@ async function renderStore() {
         if (!res.ok) throw new Error('Could not load store manifest');
         const items = await res.json();
 
-        storeEl.innerHTML = items.map((item) => `
-            <div class="store-card">
-                <div class="store-icon"><i class="bi ${item.icon}"></i></div>
-                <div class="store-type">${item.type}</div>
-                <div class="store-name">${item.name}</div>
-                <div class="store-desc">${item.desc}</div>
+        storeEl.innerHTML = items.map((item) => {
+            // Feature list HTML
+            const featuresHTML = Array.isArray(item.features) && item.features.length
+                ? `<ul class="store-features">
+                    ${item.features.map(f => `
+                        <li class="store-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>${f}</span>
+                        </li>`).join('')}
+                   </ul>`
+                : '';
+
+            // Audience HTML
+            const audienceHTML = item.audience
+                ? `<div class="store-audience">
+                       <i class="bi bi-people-fill"></i>
+                       <span>${item.audience}</span>
+                   </div>`
+                : '';
+
+            // Price display (both currencies stacked)
+            const priceDisplay = `
                 <div class="store-price">
                     <div class="price-pill">
                         <span class="price-usd" data-usd="${item.priceUsd}">${item.priceUsd === 0 ? 'Free' : `$${item.priceUsd}`}</span>
-                        <span class="price-mmk" data-mmk="${item.priceMmk}">${item.priceMmk === 0 ? 'Free' : `${item.priceMmk} MMK`}</span>
+                        <span class="price-mmk" data-mmk="${item.priceMmk}">${item.priceMmk === 0 ? 'Free' : `${item.priceMmk.toLocaleString()} MMK`}</span>
+                    </div>
+                </div>`;
+
+            return `
+                <div class="store-card">
+                    <div class="store-card-top">
+                        <div class="store-icon"><i class="bi ${item.icon}"></i></div>
+                        ${item.badge ? `<span class="store-badge">${item.badge}</span>` : ''}
+                    </div>
+                    <div class="store-type">${item.type}</div>
+                    <div class="store-name">${item.name}</div>
+                    <div class="store-desc">${item.desc}</div>
+                    <div class="store-divider"></div>
+                    ${featuresHTML}
+                    ${audienceHTML}
+                    <div class="store-bottom">
+                        ${priceDisplay}
+                        <a class="store-cta" href="${item.link}" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-box-arrow-up-right"></i> ${item.button}
+                        </a>
                     </div>
                 </div>
-                <a class="btn-primary" style="width:100%;justify-content:center;display:inline-flex;align-items:center;gap:.5rem" href="${item.link}" target="_blank"><i class="bi bi-box-arrow-up-right"></i> ${item.button}</a>
-            </div>
-        `).join('');
+            `;
+        }).join('');
+
+        // Re-apply currency state after render
+        const activeCurrencyBtn = document.querySelector('.currency-btn.active');
+        if (activeCurrencyBtn) {
+            const mode = activeCurrencyBtn.id.replace('btn-', '');
+            setCurrency(mode);
+        }
     } catch (err) {
         storeEl.innerHTML = '<p style="color:var(--text-muted)">Unable to load products.</p>';
         console.error(err);
     }
 }
+
 
 async function renderProjects() {
     const container = document.getElementById('all-projects');

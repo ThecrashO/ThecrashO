@@ -1,6 +1,8 @@
 /**
- * Markdown-based blog loader.
+ * Markdown-based Paper loader.
  * Listing: data/blog.json  |  Article: blog/{slug}.md
+ *
+ * "Paper" = evidence-based writing with clear arguments, written to explain ideas to others.
  */
 
 function parseFrontmatter(text) {
@@ -41,7 +43,7 @@ async function loadPost(slug) {
 
     return {
         id: slug,
-        tag: meta.tag || 'Blog',
+        tag: meta.tag || 'Paper',
         title: meta.title || slug,
         desc: meta.desc || '',
         meta: formatMeta(meta.date, meta.readTime),
@@ -56,7 +58,7 @@ function renderListing(posts) {
     const backBtn = document.getElementById('blog-back-btn');
 
     if (!posts || posts.length === 0) {
-        listingEl.innerHTML = `<p style="color:var(--text-muted); grid-column:1/-1; text-align:center; padding:3rem 1rem;">No blog posts available yet.</p>`;
+        listingEl.innerHTML = `<p style="color:var(--text-muted); grid-column:1/-1; text-align:center; padding:3rem 1rem;">No papers yet — the first one is on its way.</p>`;
         listingEl.style.display = 'grid';
         articleEl.style.display = 'none';
         backBtn.style.display = 'none';
@@ -118,9 +120,9 @@ function renderArticle(post) {
 }
 
 function copyBlogArticle() {
-    const title = document.querySelector('.blog-article-title')?.textContent || 'Blog Article';
+    const title = document.querySelector('.blog-article-title')?.textContent || 'Paper';
     const body = document.querySelector('.blog-article-content')?.innerText || '';
-    const text = `${title}\n\n${body.replace('Copy article', '').trim()}\n\n— @thecrashO`;
+    const text = `${title}\n\n${body.replace('Copy paper', '').trim()}\n\n— @thecrashO`;
 
     navigator.clipboard.writeText(text).then(() => {
         const btn = document.querySelector('.copy-article-btn');
@@ -145,7 +147,7 @@ async function initBlog() {
 
         renderListing(await loadManifest());
     } catch (err) {
-        listingEl.innerHTML = `<p style="color:var(--text-muted)">Could not load blog posts. Run <code>node scripts/generate-blog-manifest.js</code> and serve via a local server.</p>`;
+        listingEl.innerHTML = `<p style="color:var(--text-muted)">Could not load papers. Run <code>node scripts/generate-blog-manifest.js</code> and serve via a local server.</p>`;
         console.error(err);
     }
 }
