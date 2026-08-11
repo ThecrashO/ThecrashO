@@ -1,5 +1,9 @@
 # ThecrashO Portfolio
 
+<p align="center">
+  <img src="assets/images/preview.png" alt="ThecrashO Portfolio" width="900">
+</p>
+
 Personal portfolio of **Pyae Sone Phyo / ThecrashO**.
 
 I help businesses turn repetitive manual processes into practical AI-powered workflows.
@@ -40,8 +44,6 @@ I automate parts of the sales process, including lead research, qualification, s
 * Sales Rep Copilot
 * Business Workflow Automation
 * Web Development Projects
-
-Each project focuses on a real workflow or problem and demonstrates how AI and automation can be applied in practice.
 
 ## My Approach
 
