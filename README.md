@@ -1,217 +1,52 @@
-# ThecrashO — Personal Portfolio Website
+# Hi, I'm Pyae Sone Phyo 👋
 
-> **Pyae Sone Phyo** · Generalist × Specialist (with AI)  
-> Full-Stack Developer · AI Automation Builder · Content Creator
+**I help businesses turn repetitive manual processes into practical AI-powered workflows.**
 
-![Portfolio Preview](assets/images/preview.png)
-
----
-
-## 🌐 Live Pages
-
-| Page | URL | Description |
-|------|-----|-------------|
-| Home | `index.html` | Hero, Ecosystem, Skills & Tools, Store, Contact |
-| Projects | `projects.html` | Filterable project showcase |
-| Paper | `blog.html` | Articles & insights (Markdown-powered) |
+🌐 Portfolio: [thecrasho.vercel.app](https://thecrasho.vercel.app/)
 
 ---
 
-## 📁 Project Structure
+## What I Do
 
-```
-ThecrashO/
-├── index.html          # Main SPA — Home, Store, Contact sections
-├── projects.html       # Projects showcase page
-├── blog.html           # Paper (blog) listing & reader page
-│
-├── css/
-│   └── style.css       # Global design system (dark/light mode, all components)
-│
-├── js/
-│   ├── main.js         # Navigation, theme toggle, skills/store/projects rendering
-│   └── blog.js         # Paper (blog) listing & Markdown article reader
-│
-├── data/
-│   ├── blog.json       # Paper article metadata list
-│   ├── projects.json   # Project cards data
-│   ├── skills.json     # Skills & tools data
-│   └── store.json      # Digital products & pricing data
-│
-├── blog/               # Markdown (.md) article files
-│   └── *.md            # Individual paper/article files
-│
-├── assets/
-│   ├── images/         # Avatar, preview images
-│   └── docs/           # CV / PDF downloads
-│
-├── scripts/            # Build or utility scripts
-└── package.json        # Project metadata
-```
+I build AI-powered automation systems — workflows, agents, and integrations that take repetitive business tasks off people's plates. That covers a few connected areas:
 
----
+- **AI Workflow Automation** — connecting tools so information moves on its own (forms → AI → sheets, Telegram → AI → database, email → AI → CRM)
+- **AI Agents** — systems that understand information and act on it (lead qualification, knowledge support, internal assistants)
+- **Document & Data Automation** — turning unstructured documents (invoices, receipts) into structured data
+- **Lead & Sales Automation** — qualifying, scoring, and routing leads without manual work
 
-## 🏗️ Website Architecture
+## Selected Work
 
-### Design Pattern — Multi-page SPA Hybrid
+| Project | Problem | What I Built |
+|---|---|---|
+| AI Lead Qualification Agent | Sales teams spend hours manually researching inbound leads | Automated pipeline: submission → research → AI analysis → structured qualification |
+| AI Knowledge Support Agent | Teams repeatedly search documents for the same answers | An AI system that surfaces answers from internal business info |
+| Telegram Invoice Extractor | Manual invoice data entry | Extracts invoice data from Telegram/email and pushes it straight to a database |
 
-This site uses a **hybrid architecture** — the main page (`index.html`) behaves like a Single Page Application (SPA) with client-side section switching, while `projects.html` and `blog.html` are separate HTML pages for clean URL separation.
+*See the full list, with source code and demos, on [Projects →](https://thecrasho.vercel.app/projects.html)*
 
-```
-index.html  (SPA — section-based navigation)
-│
-├── #home     → Hero + Ecosystem + Skills
-├── #store    → Digital Products
-└── #contact  → Contact Form
+## How I Work
 
-projects.html  (Standalone page)
-blog.html      (Standalone page — "Paper")
-```
+**Understand** the existing workflow → **Design** where automation actually adds value → **Build** by connecting tools, APIs, and AI models → **Improve** by testing and refining against real use.
 
-### Navigation Flow
+## Tools I Build With
 
-```
-[Navbar]
-  ├── Home       → navigate('home')       — SPA hash routing
-  ├── Projects   → projects.html          — Full page load
-  ├── Paper      → blog.html              — Full page load
-  ├── Store      → navigate('store')      — SPA hash routing
-  ├── Contact    → navigate('contact')    — SPA hash routing
-  └── 🌙 Theme  → toggleDark()           — localStorage persisted
-```
+`n8n` `Make` `OpenAI / Gemini` `JavaScript` `APIs` `Databases` `Google Workspace`
 
-### Data Flow
+## Where to Find Me
 
-All dynamic content is **JSON-driven** — no backend required. JavaScript fetches local JSON files on load:
-
-```
-data/skills.json   →  renderSkills()   →  Home: Skills & Tools section
-data/store.json    →  renderStore()    →  Home: Store section
-data/projects.json →  renderProjects() →  projects.html: Project cards
-data/blog.json     →  blog.js          →  blog.html: Paper listing
-
-blog/*.md          →  marked.js        →  blog.html: Markdown → HTML reader
-```
-
-### Paper (Blog) System
-
-The **Paper** page (`blog.html`) is a lightweight, zero-backend article system:
-
-1. `data/blog.json` stores article metadata (title, date, description, filename)
-2. `js/blog.js` fetches the JSON and renders the article listing grid
-3. When a user clicks an article, `blog.js` fetches the `.md` file from `blog/`
-4. The Markdown is parsed by **marked.js** (CDN) and rendered as HTML in-page
-5. No page reload — article reading is done client-side
-
-### Theme System
-
-- Default: detects OS preference via `prefers-color-scheme`
-- Persisted in `localStorage` across pages
-- Applied via `data-theme="dark|light"` on `<html>` tag
-- Inline `<script>` in `<head>` prevents flash-of-wrong-theme (FOUT)
-
-### Currency Toggle (Store)
-
-The Store section supports **USD / MMK / Both** price display, toggled client-side via `setCurrency()` — no re-fetch needed.
+| | |
+|---|---|
+| 🌐 Portfolio | [thecrasho.vercel.app](https://thecrasho.vercel.app/) |
+| 💻 GitHub | [github.com/ThecrashO](https://github.com/ThecrashO) |
+| 💼 LinkedIn | [pyae-sone-phyo-thecrasho](https://www.linkedin.com/in/pyae-sone-phyo-thecrasho-525820417) |
+| 💬 Telegram | [@thecrashO](https://t.me/thecrashO_Official) |
+| 🎓 Academy | [@thecrasho_academy](https://t.me/thecrasho_academy) |
+| ▶️ YouTube | [@thecrasho](https://youtube.com/@thecrasho) |
+| 🎵 TikTok | [@thecrasho](https://www.tiktok.com/@thecrasho) |
+| 📘 Facebook | [thecrashoai](https://www.facebook.com/thecrashoai) |
+| ✉️ Email | thecrashoai@gmail.com |
 
 ---
 
-## 🛠️ Tech Stack
-
-### Frontend
-- **HTML5** — Semantic structure
-- **CSS3 (Vanilla)** — Custom design system, CSS variables, dark/light mode
-- **JavaScript (ES6+)** — All interactivity, no frameworks
-- **Bootstrap Icons** — Icon library (CDN)
-- **Google Fonts (Inter)** — Typography
-- **marked.js** — Markdown parsing for Paper articles (CDN)
-
-### Data
-- **JSON** — All content is data-driven via local JSON files
-- **Markdown** — Paper articles written in `.md` format
-
-### Infrastructure
-- **Static hosting** — No server required (GitHub Pages / Netlify compatible)
-- **Git & GitHub** — Version control & deployment
-
----
-
-## ✨ Key Features
-
-- 🌗 **Dark / Light Mode** — System-aware with localStorage persistence
-- 📱 **Responsive Design** — Mobile-first layout with bottom navbar
-- 📝 **Paper System** — Markdown-powered article reader, zero backend
-- 🗂️ **Project Filter** — Tag-based filtering for project showcase
-- 💰 **Currency Toggle** — USD / MMK price switching in Store
-- 📬 **Telegram Contact** — Direct message pre-fill via Telegram deep link
-- ⚡ **No Build Step** — Pure HTML/CSS/JS, runs directly in browser
-
----
-
-## 🚀 Getting Started
-
-```bash
-# Clone the repository
-git clone https://github.com/ThecrashO/ThecrashO.git
-cd ThecrashO
-
-# Serve locally (any static server)
-npx serve .
-# or
-python -m http.server 8080
-# then open http://localhost:8080
-```
-
-> ⚠️ Must be served via HTTP (not `file://`) due to `fetch()` calls for JSON/Markdown.
-
----
-
-## 📝 Adding Content
-
-### Add a new Paper article
-1. Create a Markdown file: `blog/my-article.md`
-2. Add metadata entry to `data/blog.json`:
-```json
-{
-  "title": "My Article Title",
-  "date": "2026-08-08",
-  "desc": "Short description.",
-  "file": "my-article.md"
-}
-```
-
-### Add a new Project
-Add an entry to `data/projects.json`:
-```json
-{
-  "title": "Project Name",
-  "desc": "Short description.",
-  "tag": "Web App",
-  "tagIcon": "bi-globe",
-  "categories": ["web"],
-  "links": {
-    "github": "https://github.com/...",
-    "demo": "https://..."
-  }
-}
-```
-
----
-
-## 🔗 Connect
-
-| Platform | Link |
-|----------|------|
-| GitHub | [github.com/ThecrashO](https://github.com/ThecrashO) |
-| Telegram | [@thecrashO](https://t.me/thecrashO_Official) |
-| Academy | [@thecrasho_academy](https://t.me/thecrasho_academy) |
-| YouTube | [@thecrasho](https://youtube.com/@thecrasho) |
-| TikTok | [@thecrasho](https://www.tiktok.com/@thecrasho) |
-| X (Twitter) | [@thecrashoX](https://x.com/thecrashoX) |
-| Email | thecrasho99@gmail.com |
-
----
-
-## 📄 License
-
-MIT © 2026 Pyae Sone Phyo (ThecrashO)
+**Have a repetitive process slowing your team down?** [Let's talk →](https://t.me/thecrashO_Official)
