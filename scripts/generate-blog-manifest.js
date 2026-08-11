@@ -1,5 +1,5 @@
 /**
- * Scans blog/*.md and writes data/blog.json.
+ * Scans paper/*.md and writes data/paper.json.
  * Run after adding or editing a post:  node scripts/generate-blog-manifest.js
  */
 
@@ -7,8 +7,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const BLOG_DIR = path.join(ROOT, 'blog');
-const OUT_FILE = path.join(ROOT, 'data', 'blog.json');
+const PAPER_DIR = path.join(ROOT, 'paper');
+const OUT_FILE = path.join(ROOT, 'data', 'paper.json');
 
 function parseFrontmatter(content) {
     const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -34,10 +34,10 @@ function formatMeta(date, readTime) {
     return readTime ? `${label} · ${readTime}` : label;
 }
 
-const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith('.md'));
+const files = fs.readdirSync(PAPER_DIR).filter((f) => f.endsWith('.md'));
 const posts = files.map((file) => {
     const id = file.replace(/\.md$/, '');
-    const raw = fs.readFileSync(path.join(BLOG_DIR, file), 'utf8');
+    const raw = fs.readFileSync(path.join(PAPER_DIR, file), 'utf8');
     const meta = parseFrontmatter(raw);
 
     return {
@@ -57,4 +57,4 @@ posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
 fs.writeFileSync(OUT_FILE, JSON.stringify(posts, null, 4) + '\n');
 
-console.log(`Wrote ${posts.length} post(s) to data/blog.json`);
+console.log(`Wrote ${posts.length} post(s) to data/paper.json`);

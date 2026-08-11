@@ -1,52 +1,66 @@
-# Hi, I'm Pyae Sone Phyo 👋
+# ThecrashO Portfolio
 
-**I help businesses turn repetitive manual processes into practical AI-powered workflows.**
+Personal portfolio of **Pyae Sone Phyo / ThecrashO**.
 
-🌐 Portfolio: [thecrasho.vercel.app](https://thecrasho.vercel.app/)
-
----
+I help businesses turn repetitive manual processes into practical AI-powered workflows.
 
 ## What I Do
 
-I build AI-powered automation systems — workflows, agents, and integrations that take repetitive business tasks off people's plates. That covers a few connected areas:
+* Build AI-powered workflow automation for businesses
+* Automate repetitive tasks and business processes
+* Build AI agents for specific business tasks
+* Automate lead research and qualification
+* Extract and organize data from documents
+* Connect business tools through APIs and automation
+* Build web interfaces and lightweight web applications
 
-- **AI Workflow Automation** — connecting tools so information moves on its own (forms → AI → sheets, Telegram → AI → database, email → AI → CRM)
-- **AI Agents** — systems that understand information and act on it (lead qualification, knowledge support, internal assistants)
-- **Document & Data Automation** — turning unstructured documents (invoices, receipts) into structured data
-- **Lead & Sales Automation** — qualifying, scoring, and routing leads without manual work
+## What I Build
 
-## Selected Work
+### AI Workflow Automation
 
-| Project | Problem | What I Built |
-|---|---|---|
-| AI Lead Qualification Agent | Sales teams spend hours manually researching inbound leads | Automated pipeline: submission → research → AI analysis → structured qualification |
-| AI Knowledge Support Agent | Teams repeatedly search documents for the same answers | An AI system that surfaces answers from internal business info |
-| Telegram Invoice Extractor | Manual invoice data entry | Extracts invoice data from Telegram/email and pushes it straight to a database |
+I turn repetitive business processes into automated workflows that reduce manual work and keep information moving between tools.
 
-*See the full list, with source code and demos, on [Projects →](https://thecrasho.vercel.app/projects.html)*
+### AI Agents
 
-## How I Work
+I build focused AI agents for tasks such as lead qualification, knowledge support, and sales assistance.
 
-**Understand** the existing workflow → **Design** where automation actually adds value → **Build** by connecting tools, APIs, and AI models → **Improve** by testing and refining against real use.
+### Document & Data Automation
 
-## Tools I Build With
+I build workflows that extract useful information from invoices, receipts, and other documents and turn it into structured data.
 
-`n8n` `Make` `OpenAI / Gemini` `JavaScript` `APIs` `Databases` `Google Workspace`
+### Lead & Sales Automation
 
-## Where to Find Me
+I automate parts of the sales process, including lead research, qualification, scoring, routing, and follow-up workflows.
 
-| | |
-|---|---|
-| 🌐 Portfolio | [thecrasho.vercel.app](https://thecrasho.vercel.app/) |
-| 💻 GitHub | [github.com/ThecrashO](https://github.com/ThecrashO) |
-| 💼 LinkedIn | [pyae-sone-phyo-thecrasho](https://www.linkedin.com/in/pyae-sone-phyo-thecrasho-525820417) |
-| 💬 Telegram | [@thecrashO](https://t.me/thecrashO_Official) |
-| 🎓 Academy | [@thecrasho_academy](https://t.me/thecrasho_academy) |
-| ▶️ YouTube | [@thecrasho](https://youtube.com/@thecrasho) |
-| 🎵 TikTok | [@thecrasho](https://www.tiktok.com/@thecrasho) |
-| 📘 Facebook | [thecrashoai](https://www.facebook.com/thecrashoai) |
-| ✉️ Email | thecrashoai@gmail.com |
+## Selected Projects
 
----
+* AI Lead Qualification Agent
+* AI Knowledge Support Agent
+* Telegram Invoice Extractor
+* Sales Rep Copilot
+* Business Workflow Automation
+* Web Development Projects
 
-**Have a repetitive process slowing your team down?** [Let's talk →](https://t.me/thecrashO_Official)
+Each project focuses on a real workflow or problem and demonstrates how AI and automation can be applied in practice.
+
+## My Approach
+
+**Understand → Structure → Build → Improve**
+
+I focus on understanding the problem first, designing the right workflow, and then building a practical solution.
+
+## About
+
+I'm **Pyae Sone Phyo**, also known as **ThecrashO**.
+
+My current focus is AI automation, AI agents, business workflows, and web development.
+
+I don't build with AI just because it is available. I look for useful problems where automation can reduce repetitive work and make a process better.
+
+## Links
+
+Portfolio: https://thecrasho.vercel.app
+
+GitHub: https://github.com/ThecrashO
+
+Telegram: https://t.me/thecrashO_Official

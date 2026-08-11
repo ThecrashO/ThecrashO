@@ -1,6 +1,6 @@
 /**
  * Markdown-based Paper loader.
- * Listing: data/blog.json  |  Article: blog/{slug}.md
+ * Listing: data/paper.json  |  Article: paper/{slug}.md
  *
  * "Paper" = evidence-based writing with clear arguments, written to explain ideas to others.
  */
@@ -29,13 +29,13 @@ function formatMeta(date, readTime) {
 }
 
 async function loadManifest() {
-    const res = await fetch('data/blog.json');
-    if (!res.ok) throw new Error('Could not load blog manifest');
+    const res = await fetch('data/paper.json');
+    if (!res.ok) throw new Error('Could not load paper manifest');
     return res.json();
 }
 
 async function loadPost(slug) {
-    const res = await fetch(`blog/${slug}.md`);
+    const res = await fetch(`paper/${slug}.md`);
     if (!res.ok) return null;
 
     const text = await res.text();
@@ -73,7 +73,7 @@ function renderListing(posts) {
                 <h3 class="blog-title">${post.title}</h3>
                 <p class="blog-desc">${post.desc}</p>
                 <div class="blog-meta">${post.meta}</div>
-                <a href="blog.html?post=${post.id}" class="blog-link">Read More →</a>
+                <a href="paper.html?post=${post.id}" class="blog-link">Read More →</a>
             </div>
         </article>
     `).join('');

@@ -2,6 +2,7 @@
   "name": "thecrasho-portfolio",
   "private": true,
   "scripts": {
-    "blog": "node scripts/generate-blog-manifest.js"
+    "blog": "node scripts/generate-blog-manifest.js",
+    "paper": "node scripts/generate-blog-manifest.js"
   }
 }

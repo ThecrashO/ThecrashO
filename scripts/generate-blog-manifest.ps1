@@ -1,6 +1,6 @@
 # Powershell fallback:  .\scripts\generate-blog-manifest.ps1
-$blogDir = Join-Path $PSScriptRoot "..\blog"
-$outFile = Join-Path $PSScriptRoot "..\data\blog.json"
+$paperDir = Join-Path $PSScriptRoot "..\paper"
+$outFile = Join-Path $PSScriptRoot "..\data\paper.json"
 
 function Parse-Frontmatter($content) {
     if ($content -notmatch '(?s)^---\r?\n(.*?)\r?\n---') { return @{} }
@@ -25,7 +25,7 @@ function Format-Meta($date, $readTime) {
     return $label
 }
 
-$posts = Get-ChildItem $blogDir -Filter "*.md" | ForEach-Object {
+$posts = Get-ChildItem $paperDir -Filter "*.md" | ForEach-Object {
     $id = $_.BaseName
     $raw = Get-Content $_.FullName -Raw
     $meta = Parse-Frontmatter $raw
@@ -44,4 +44,4 @@ $posts = Get-ChildItem $blogDir -Filter "*.md" | ForEach-Object {
 $json = $posts | ConvertTo-Json -Depth 4
 $null = New-Item -ItemType Directory -Force -Path (Split-Path $outFile)
 Set-Content -Path $outFile -Value $json -Encoding UTF8
-Write-Host "Wrote $($posts.Count) post(s) to data/blog.json"
+Write-Host "Wrote $($posts.Count) post(s) to data/paper.json"
