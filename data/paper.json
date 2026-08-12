@@ -1,12 +1,13 @@
 [
     {
         "id": "building-reliable-ai-automations",
-        "tag": "AI အလိုအလျောက်လုပ်ဆောင်ခြင်း",
-        "title": "စိတ်ချယုံကြည်ရတဲ့ AI Automation System တည်ဆောက်နည်း",
-        "desc": "ရိုးရိုးရှင်းရှင်း သရုပ်ပြတာကနေ တကယ့်လက်တွေ့မှာ စိတ်ချယုံကြည်စွာ အသုံးပြုနိုင်မယ့် AI စနစ်ဖြစ်လာအောင် ဘယ်လိုတည်ဆောက်မလဲ။",
+        "tag": "AI Automation",
+        "title": "Real-world AI Automation System တည်ဆောက်ခြင်း",
+        "desc": "တကယ်လက်တွေ့မှာ အသုံးဝင်တဲ့ AI Automation System တစ်ခုဆိုတာ",
         "date": "2026-08-12",
         "readTime": "၄ မိနစ်",
         "meta": "August 2026 · ၄ မိနစ်",
         "image": "assets/images/paper/building-reliable-ai-automations.png"
     }
+
 ]
