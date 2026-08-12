@@ -53,6 +53,7 @@
             "ai",
             "automation"
         ],
+        "image": "assets/images/projects/AI Lead Qualification Agent.png",
         "desc": "An AI-powered B2B lead qualification workflow built with Make.com. It automatically researches companies, evaluates inbound leads against Ideal Customer Profile (ICP) criteria using AI, updates Google Sheets with qualification scores, and notifies the sales team via Telegram for high-priority opportunities.",
         "links": {
             "github": "https://github.com/ThecrashO/make-lead-qualification-agent/",
@@ -68,6 +69,7 @@
             "ai",
             "automation"
         ],
+        "image": "assets/images/projects/AI Knowledge Support Agent.png",
         "desc": "An AI-powered Telegram customer support agent built with Make.com and Google Gemini. It combines Retrieval-Augmented Generation (RAG), conversational memory, and web search fallback to answer customer questions using company documentation while providing fast, accurate, and natural responses.",
         "links": {
             "github": "https://github.com/ThecrashO/make-knowledge-support-agent",
@@ -83,6 +85,7 @@
             "ai",
             "automation"
         ],
+        "image": "assets/images/projects/Telegram Invoice Extractor Agent.png",
         "desc": "An AI-powered Telegram automation built with Make.com that extracts invoice data from photos and PDFs using AI OCR, stores structured records in Google Sheets, and instantly sends a confirmation summary back to the user.",
         "links": {
             "github": "https://github.com/ThecrashO/make-telegram-invoice-extractor",

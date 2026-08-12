@@ -248,8 +248,12 @@ async function renderProjects() {
             }).join('');
 
             const categories = Array.isArray(project.categories) ? project.categories.join(' ') : project.categories || '';
+            const image = project.image
+                ? `<div class="project-image-wrap"><img src="${project.image}" alt="${project.title} workflow" loading="lazy"></div>`
+                : '';
             return `
                 <div class="project-card" data-category="${categories}">
+                    ${image}
                     <div class="project-tag"><i class="bi ${project.tagIcon}"></i> ${project.tag}</div>
                     <div class="project-title">${project.title}</div>
                     <div class="project-desc">${project.desc}</div>

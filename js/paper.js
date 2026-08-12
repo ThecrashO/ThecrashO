@@ -66,7 +66,7 @@ function renderListing(posts) {
     }
 
     listingEl.innerHTML = posts.map((post) => `
-        <article class="blog-card">
+        <article class="blog-card" lang="my">
             ${post.image ? `<div class="blog-card-image-wrap"><img src="${post.image}" alt="${post.title}"></div>` : ''}
             <div class="blog-card-body">
                 <div class="blog-tag">${post.tag}</div>
@@ -94,7 +94,7 @@ function renderArticle(post) {
     backBtn.style.display = 'inline-flex';
 
     articleEl.innerHTML = `
-        <div class="blog-article-shell">
+        <div class="blog-article-shell" lang="my">
             <div class="blog-article-hero">
                 <div class="blog-article-head">
                     <div class="blog-article-badge">${post.tag}</div>
