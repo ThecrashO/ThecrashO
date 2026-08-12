@@ -35,18 +35,30 @@
 
     <div class="page active" style="max-width: 920px;">
         <div class="section-title">All Projects</div>
+        <p class="projects-intro">Selected systems, web products, and AI automations — designed around real problems and practical outcomes.</p>
 
         <!-- Filter Tags -->
         <div class="filter-tags">
-            <button class="filter-tag active" data-filter="all">All</button>
-            <button class="filter-tag" data-filter="automation">Automation</button>
-            <button class="filter-tag" data-filter="system">System</button>
-            <button class="filter-tag" data-filter="web">Web</button>
+            <button class="filter-tag active" data-filter="all">All <span class="filter-count">0</span></button>
+            <button class="filter-tag" data-filter="ai">AI <span class="filter-count">0</span></button>
+            <button class="filter-tag" data-filter="automation">Automation <span class="filter-count">0</span></button>
+            <button class="filter-tag" data-filter="system">System <span class="filter-count">0</span></button>
+            <button class="filter-tag" data-filter="web">Web <span class="filter-count">0</span></button>
         </div>
 
         <!-- Projects Grid -->
         <div class="projects-grid" id="all-projects"></div>
 
+    </div>
+
+    <div class="project-modal" id="project-modal" aria-hidden="true">
+        <div class="project-modal-backdrop" data-close-project></div>
+        <div class="project-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+            <button class="project-modal-close" type="button" data-close-project aria-label="Close project details">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div id="project-modal-content"></div>
+        </div>
     </div>
 
     <!-- NAVBAR -->
@@ -72,6 +84,6 @@
         </button>
     </nav>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=2"></script>
 </body>
 </html>

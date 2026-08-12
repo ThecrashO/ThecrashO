@@ -226,6 +226,61 @@ async function renderStore() {
 }
 
 
+let projectManifest = [];
+
+function projectLinksHTML(project, modalClass = '') {
+    return Object.entries(project.links || {}).map(([key, value]) => {
+        const label = key === 'github'   ? 'GitHub'
+                    : key === 'demo'     ? 'Live Demo'
+                    : key === 'template' ? 'Use Template'
+                    : key;
+        const icon  = key === 'github'   ? 'bi-github'
+                    : key === 'template' ? 'bi-puzzle-fill'
+                    : 'bi-box-arrow-up-right';
+        return `<a href="${value}" target="_blank" rel="noopener noreferrer" class="project-link ${modalClass}"><i class="bi ${icon}"></i> ${label}</a>`;
+    }).join('');
+}
+
+function openProjectDetails(projectId) {
+    const project = projectManifest.find((item) => item.id === projectId);
+    const modal = document.getElementById('project-modal');
+    const content = document.getElementById('project-modal-content');
+    if (!project || !modal || !content) return;
+
+    const stack = (project.stack || []).map((item) => `<span class="project-tech">${item}</span>`).join('');
+    const highlights = (project.details?.highlights || []).map((item) => `<li><i class="bi bi-check2-circle"></i><span>${item}</span></li>`).join('');
+    content.innerHTML = `
+        <div class="project-modal-image"><img src="${project.image}" alt="${project.title} project cover"></div>
+        <div class="project-modal-body">
+            <div class="project-modal-eyebrow"><i class="bi ${project.tagIcon}"></i> ${project.tag}</div>
+            <h2 id="project-modal-title">${project.title}</h2>
+            <p class="project-modal-lead">${project.desc}</p>
+            <div class="project-modal-stats">
+                <div><strong>${project.impact?.value || '—'}</strong><span>${project.impact?.label || 'project outcome'}</span></div>
+                <div class="project-modal-stack">${stack}</div>
+            </div>
+            <div class="project-modal-story">
+                <section><span class="project-detail-label">The problem</span><p>${project.details?.problem || ''}</p></section>
+                <section><span class="project-detail-label">The solution</span><p>${project.details?.solution || ''}</p></section>
+            </div>
+            <ul class="project-highlights">${highlights}</ul>
+            <div class="project-modal-links">${projectLinksHTML(project, 'project-modal-link')}</div>
+        </div>`;
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    modal.querySelector('.project-modal-close')?.focus();
+}
+
+function closeProjectDetails() {
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+}
+
 async function renderProjects() {
     const container = document.getElementById('all-projects');
     if (!container) return;
@@ -234,33 +289,53 @@ async function renderProjects() {
         const res = await fetch('data/projects.json');
         if (!res.ok) throw new Error('Could not load project manifest');
         const projects = await res.json();
+        projectManifest = projects;
 
         container.innerHTML = projects.map((project) => {
-            const links = Object.entries(project.links || {}).map(([key, value]) => {
-                const label = key === 'github'   ? 'GitHub'
-                            : key === 'demo'     ? 'Live Demo'
-                            : key === 'template' ? 'Use Template'
-                            : key;
-                const icon  = key === 'github'   ? 'bi-github'
-                            : key === 'template' ? 'bi-puzzle-fill'
-                            : 'bi-box-arrow-up-right';
-                return `<a href="${value}" target="_blank" rel="noopener noreferrer" class="project-link"><i class="bi ${icon}"></i> ${label}</a>`;
-            }).join('');
-
             const categories = Array.isArray(project.categories) ? project.categories.join(' ') : project.categories || '';
-            const image = project.image
-                ? `<div class="project-image-wrap"><img src="${project.image}" alt="${project.title} workflow" loading="lazy"></div>`
-                : '';
+            const stack = (project.stack || []).map((item) => `<span class="project-tech">${item}</span>`).join('');
+            const featured = project.featured ? ' featured' : '';
             return `
-                <div class="project-card" data-category="${categories}">
-                    ${image}
-                    <div class="project-tag"><i class="bi ${project.tagIcon}"></i> ${project.tag}</div>
-                    <div class="project-title">${project.title}</div>
-                    <div class="project-desc">${project.desc}</div>
-                    <div class="project-links">${links}</div>
-                </div>
+                <article class="project-card${featured}" data-category="${categories}" data-project-id="${project.id}" tabindex="0">
+                    <div class="project-image-wrap">
+                        <img src="${project.image}" alt="${project.title} project cover" loading="lazy">
+                        <div class="project-image-overlay"></div>
+                        ${project.featured ? '<span class="project-featured-badge"><i class="bi bi-stars"></i> Featured Project</span>' : ''}
+                        <button class="project-view-btn" type="button" aria-label="View ${project.title} details">View case study <i class="bi bi-arrow-up-right"></i></button>
+                    </div>
+                    <div class="project-card-body">
+                        <div class="project-card-topline">
+                            <div class="project-tag"><i class="bi ${project.tagIcon}"></i> ${project.tag}</div>
+                            <div class="project-impact"><strong>${project.impact?.value || '—'}</strong><span>${project.impact?.label || ''}</span></div>
+                        </div>
+                        <h2 class="project-title">${project.title}</h2>
+                        <p class="project-desc">${project.desc}</p>
+                        <div class="project-stack">${stack}</div>
+                        <div class="project-links">${projectLinksHTML(project)}</div>
+                    </div>
+                </article>
             `;
         }).join('');
+
+        document.querySelectorAll('.filter-tag').forEach((tag) => {
+            const filter = tag.dataset.filter;
+            const count = filter === 'all' ? projects.length : projects.filter((project) => project.categories.includes(filter)).length;
+            const countEl = tag.querySelector('.filter-count');
+            if (countEl) countEl.textContent = count;
+        });
+
+        container.querySelectorAll('.project-card').forEach((card) => {
+            card.addEventListener('click', (event) => {
+                if (event.target.closest('a')) return;
+                openProjectDetails(card.dataset.projectId);
+            });
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openProjectDetails(card.dataset.projectId);
+                }
+            });
+        });
     } catch (err) {
         container.innerHTML = '<p style="color:var(--text-muted)">Unable to load projects.</p>';
         console.error(err);
@@ -294,16 +369,21 @@ document.addEventListener('DOMContentLoaded', async function () {
     await renderStore();
     await renderProjects();
 
+    document.querySelectorAll('[data-close-project]').forEach((element) => element.addEventListener('click', closeProjectDetails));
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeProjectDetails();
+    });
+
     const filterProjects = () => {
         const cards = projectCards();
         const activeFilter = document.querySelector('.filter-tag.active')?.dataset.filter || 'all';
 
         cards.forEach(card => {
             if (activeFilter === 'all') {
-                card.style.display = 'block';
+                card.style.display = '';
             } else {
                 const categories = card.dataset.category ? card.dataset.category.split(' ') : [];
-                card.style.display = categories.includes(activeFilter) ? 'block' : 'none';
+                card.style.display = categories.includes(activeFilter) ? '' : 'none';
             }
         });
     };

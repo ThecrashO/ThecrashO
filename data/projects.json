@@ -1,28 +1,20 @@
 [
     {
-        "id": "portfolio-website",
-        "title": "Portfolio Website",
-        "tag": "Web",
-        "tagIcon": "bi-code-square",
-        "categories": [
-            "web"
-        ],
-        "desc": "A personal hub where I showcase my AI projects, web applications, technical insights, learning resources, and creative work. Everything is connected in one place to document my journey and share what I build.",
-        "links": {
-            "github": "https://github.com/ThecrashO/ThecrashO",
-            "demo": "https://thecrasho.vercel.app/"
-        }
-    },
-    {
         "id": "publio",
         "title": "Publio",
         "tag": "Web App",
         "tagIcon": "bi-share-fill",
-        "categories": [
-            "web",
-            "automation"
-        ],
-        "desc": "Write once, publish everywhere. Publio is a self-hosted social media management platform that enables creators and businesses to publish content across multiple social networks from one unified dashboard.",
+        "categories": ["web", "automation"],
+        "featured": true,
+        "image": "assets/images/projects/Publio.png",
+        "desc": "Create once and publish across multiple social channels from one self-hosted dashboard.",
+        "stack": ["Next.js", "Automation", "Social APIs", "Self-hosted"],
+        "impact": { "value": "1", "label": "unified dashboard" },
+        "details": {
+            "problem": "Creators and teams lose time rewriting and publishing the same content across disconnected social platforms.",
+            "solution": "Publio brings writing, scheduling, and multi-channel publishing into one focused workspace that teams can host and control themselves.",
+            "highlights": ["Unified post composer", "Multi-channel publishing workflow", "Self-hosted data ownership"]
+        },
         "links": {
             "github": "https://github.com/ThecrashO/Publio",
             "demo": "https://publio-p.vercel.app/"
@@ -33,15 +25,36 @@
         "title": "Crash-Archi Workspace",
         "tag": "AI System",
         "tagIcon": "bi-diagram-3",
-        "categories": [
-            "ai",
-            "automation",
-            "architecture",
-            "system"
-        ],
-        "desc": "Crash-Archi is an AI-ready project architecture workspace designed to transform raw ideas into structured, reviewable, and development-ready project packages. It focuses on understanding problems, defining architecture, planning solutions, and preparing clear instructions for AI-assisted development.",
+        "categories": ["ai", "automation", "architecture", "system"],
+        "image": "assets/images/projects/Crash-Archi Workspace.png",
+        "desc": "Turns raw ideas into structured, reviewable, development-ready project packages for AI-assisted building.",
+        "stack": ["AI", "Architecture", "Markdown", "Planning"],
+        "impact": { "value": "4", "label": "planning stages" },
+        "details": {
+            "problem": "Raw product ideas often reach development without enough problem definition, architecture, or implementation guidance.",
+            "solution": "Crash-Archi creates a repeatable workspace for understanding the problem, defining architecture, planning the solution, and preparing AI-ready instructions.",
+            "highlights": ["Problem framing system", "Reviewable architecture outputs", "AI-ready development handoff"]
+        },
+        "links": { "github": "https://github.com/ThecrashO/Crash-Archi" }
+    },
+    {
+        "id": "portfolio-website",
+        "title": "Portfolio Website",
+        "tag": "Web",
+        "tagIcon": "bi-code-square",
+        "categories": ["web"],
+        "image": "assets/images/projects/Portfolio Website.png",
+        "desc": "Connects projects, technical writing, learning resources, and services in one personal creator hub.",
+        "stack": ["HTML", "CSS", "JavaScript", "JSON"],
+        "impact": { "value": "5", "label": "connected sections" },
+        "details": {
+            "problem": "Projects, writing, resources, and services are difficult to discover when they live across separate platforms.",
+            "solution": "A fast, responsive personal hub presents the complete body of work through a consistent black-and-gold experience.",
+            "highlights": ["Data-driven content", "Dark and light themes", "Responsive portfolio experience"]
+        },
         "links": {
-            "github": "https://github.com/ThecrashO/Crash-Archi"
+            "github": "https://github.com/ThecrashO/ThecrashO",
+            "demo": "https://thecrasho.vercel.app/"
         }
     },
     {
@@ -49,12 +62,16 @@
         "title": "AI Lead Qualification Agent",
         "tag": "Automation",
         "tagIcon": "bi-robot",
-        "categories": [
-            "ai",
-            "automation"
-        ],
+        "categories": ["ai", "automation"],
         "image": "assets/images/projects/AI Lead Qualification Agent.png",
-        "desc": "An AI-powered B2B lead qualification workflow built with Make.com. It automatically researches companies, evaluates inbound leads against Ideal Customer Profile (ICP) criteria using AI, updates Google Sheets with qualification scores, and notifies the sales team via Telegram for high-priority opportunities.",
+        "desc": "Researches and scores inbound leads, then alerts sales teams when a high-value opportunity appears.",
+        "stack": ["Make.com", "AI", "Google Sheets", "Telegram"],
+        "impact": { "value": "4", "label": "connected services" },
+        "details": {
+            "problem": "Sales teams spend valuable time manually researching and prioritizing every inbound lead.",
+            "solution": "The workflow researches each company, evaluates ICP fit with AI, records the score, and immediately routes priority opportunities to Telegram.",
+            "highlights": ["Automated company research", "AI-powered ICP scoring", "Real-time priority alerts"]
+        },
         "links": {
             "github": "https://github.com/ThecrashO/make-lead-qualification-agent/",
             "template": "https://us2.make.com/public/shared-scenario/TdQgkyCOjN2/lead-qualification-agent"
@@ -65,12 +82,16 @@
         "title": "AI Knowledge Support Agent",
         "tag": "Automation",
         "tagIcon": "bi-chat-dots-fill",
-        "categories": [
-            "ai",
-            "automation"
-        ],
+        "categories": ["ai", "automation"],
         "image": "assets/images/projects/AI Knowledge Support Agent.png",
-        "desc": "An AI-powered Telegram customer support agent built with Make.com and Google Gemini. It combines Retrieval-Augmented Generation (RAG), conversational memory, and web search fallback to answer customer questions using company documentation while providing fast, accurate, and natural responses.",
+        "desc": "Answers Telegram support questions with company knowledge, conversation memory, and web-search fallback.",
+        "stack": ["Make.com", "Gemini", "RAG", "Telegram"],
+        "impact": { "value": "3", "label": "answer layers" },
+        "details": {
+            "problem": "Support teams repeatedly answer the same questions while customers wait for information already available in company documents.",
+            "solution": "The agent retrieves trusted company knowledge first, remembers the conversation, and uses web search only when internal context is insufficient.",
+            "highlights": ["Retrieval-augmented answers", "Conversational memory", "Web-search fallback"]
+        },
         "links": {
             "github": "https://github.com/ThecrashO/make-knowledge-support-agent",
             "template": "https://us2.make.com/public/shared-scenario/GZmmJTjBnkz/knowledge-support-agent"
@@ -78,15 +99,19 @@
     },
     {
         "id": "ai-telegram-invoice-extractor",
-        "title": "AI Telegram Invoice Extractor Agent",
+        "title": "AI Telegram Invoice Extractor",
         "tag": "Automation",
         "tagIcon": "bi-receipt",
-        "categories": [
-            "ai",
-            "automation"
-        ],
+        "categories": ["ai", "automation"],
         "image": "assets/images/projects/Telegram Invoice Extractor Agent.png",
-        "desc": "An AI-powered Telegram automation built with Make.com that extracts invoice data from photos and PDFs using AI OCR, stores structured records in Google Sheets, and instantly sends a confirmation summary back to the user.",
+        "desc": "Converts invoice photos and PDFs into structured records and returns an instant Telegram confirmation.",
+        "stack": ["Make.com", "AI OCR", "Google Sheets", "Telegram"],
+        "impact": { "value": "2", "label": "input formats" },
+        "details": {
+            "problem": "Manually copying invoice fields into spreadsheets is slow, repetitive, and vulnerable to typing errors.",
+            "solution": "Users send a photo or PDF in Telegram; AI OCR extracts the fields, saves a structured record, and sends a confirmation summary immediately.",
+            "highlights": ["Photo and PDF support", "Structured invoice records", "Instant confirmation summary"]
+        },
         "links": {
             "github": "https://github.com/ThecrashO/make-telegram-invoice-extractor",
             "template": "https://us2.make.com/public/shared-scenario/SyhefzqLTHO/invoice-extractor-agent"
