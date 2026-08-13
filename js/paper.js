@@ -56,6 +56,8 @@ function renderListing(posts) {
     const listingEl = document.getElementById('blog-listing');
     const articleEl = document.getElementById('blog-article');
     const backBtn = document.getElementById('blog-back-btn');
+    document.body.classList.remove('paper-article-mode');
+    document.documentElement.classList.remove('paper-article-route');
 
     if (!posts || posts.length === 0) {
         listingEl.innerHTML = `<p style="color:var(--text-muted); grid-column:1/-1; text-align:center; padding:3rem 1rem;">No papers yet — the first one is on its way.</p>`;
@@ -88,6 +90,8 @@ function renderArticle(post) {
     const articleEl = document.getElementById('blog-article');
     const backBtn = document.getElementById('blog-back-btn');
     const html = typeof marked !== 'undefined' ? marked.parse(post.body) : post.body;
+    document.body.classList.add('paper-article-mode');
+    document.documentElement.classList.add('paper-article-route');
 
     listingEl.style.display = 'none';
     articleEl.style.display = 'block';

@@ -263,8 +263,14 @@ function openProjectDetails(projectId) {
                 <section><span class="project-detail-label">The problem</span><p>${project.details?.problem || ''}</p></section>
                 <section><span class="project-detail-label">The solution</span><p>${project.details?.solution || ''}</p></section>
             </div>
-            <ul class="project-highlights">${highlights}</ul>
-            <div class="project-modal-links">${projectLinksHTML(project, 'project-modal-link')}</div>
+            <div class="project-highlights-section">
+                <span class="project-detail-label">Key capabilities</span>
+                <ul class="project-highlights">${highlights}</ul>
+            </div>
+            <div class="project-modal-footer">
+                <span>Explore the project</span>
+                <div class="project-modal-links">${projectLinksHTML(project, 'project-modal-link')}</div>
+            </div>
         </div>`;
 
     modal.classList.add('open');

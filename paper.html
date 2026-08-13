@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Myanmar:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/logo-icon.png" />
@@ -19,19 +19,22 @@
             (function(){
                 try{
                     const stored = localStorage.getItem('theme');
-                    if(stored) document.documentElement.dataset.theme = stored;
-                    else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme = 'dark';
-                    else document.documentElement.dataset.theme = 'light';
-                }catch(e){}
+                if(stored) document.documentElement.dataset.theme = stored;
+                else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.dataset.theme = 'dark';
+                else document.documentElement.dataset.theme = 'light';
+                if(new URLSearchParams(window.location.search).has('post')) document.documentElement.classList.add('paper-article-route');
+            }catch(e){}
             })();
         </script>
 </head>
 <body class="paper-page">
-    <div class="page active" style="max-width: 920px;">
-        <div class="section-title">Paper</div>
-        <p class="paper-intro">
+    <div class="page active paper-layout" style="max-width: 920px;">
+        <header class="paper-page-header">
+            <div class="section-title">Paper</div>
+            <p class="paper-intro">
             AI၊ Web Development၊ Automation၊ နည်းပညာအတွေးအမြင်များနှင့် ကိုယ်ပိုင်အတွေးအမြင်များကို အထောက်အထား၊ အတွေ့အကြုံများဖြင့် ရှင်းလင်းစွာ မျှဝေထားသော စာစုများ။
-        </p>
+            </p>
+        </header>
 
         <div id="blog-listing" class="blog-grid"></div>
         <div id="blog-article" style="display:none; margin-top: 8px;"></div>
@@ -67,6 +70,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/paper.js"></script>
+    <script src="js/paper.js?v=3"></script>
 </body>
 </html>
