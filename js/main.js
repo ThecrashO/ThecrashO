@@ -297,27 +297,26 @@ async function renderProjects() {
         const projects = await res.json();
         projectManifest = projects;
 
-        container.innerHTML = projects.map((project) => {
+        container.innerHTML = projects.map((project, index) => {
             const categories = Array.isArray(project.categories) ? project.categories.join(' ') : project.categories || '';
             const stack = (project.stack || []).map((item) => `<span class="project-tech">${item}</span>`).join('');
-            const featured = project.featured ? ' featured' : '';
+            const links = projectLinksHTML(project, 'project-case-link');
             return `
-                <article class="project-card${featured}" data-category="${categories}" data-project-id="${project.id}" tabindex="0">
-                    <div class="project-image-wrap">
-                        <img src="${project.image}" alt="${project.title} project cover" loading="lazy">
-                        <div class="project-image-overlay"></div>
-                        ${project.featured ? '<span class="project-featured-badge"><i class="bi bi-stars"></i> Featured Project</span>' : ''}
-                        <button class="project-view-btn" type="button" aria-label="View ${project.title} details">View case study <i class="bi bi-arrow-up-right"></i></button>
-                    </div>
-                    <div class="project-card-body">
-                        <div class="project-card-topline">
-                            <div class="project-tag"><i class="bi ${project.tagIcon}"></i> ${project.tag}</div>
-                            <div class="project-impact"><strong>${project.impact?.value || '—'}</strong><span>${project.impact?.label || ''}</span></div>
+                <article class="project-case-study" data-category="${categories}" data-project-id="${project.id}">
+                    <a class="project-case-visual" href="${project.links?.demo || project.links?.template || project.links?.github || '#'}"
+                        target="_blank" rel="noopener noreferrer" aria-label="Open ${project.title}">
+                        <img src="${project.image}" alt="${project.title} project screenshot" loading="lazy">
+                        <span class="project-case-open"><i class="bi bi-arrow-up-right"></i></span>
+                    </a>
+                    <div class="project-case-content">
+                        <div class="project-case-kicker">
+                            <span class="project-case-number">${String(index + 1).padStart(2, '0')}</span>
+                            <span class="project-case-type"><i class="bi ${project.tagIcon}"></i> ${project.tag}</span>
                         </div>
-                        <h2 class="project-title">${project.title}</h2>
-                        <p class="project-desc">${project.desc}</p>
-                        <div class="project-stack">${stack}</div>
-                        <div class="project-links">${projectLinksHTML(project)}</div>
+                        <h2 class="project-case-title">${project.title}</h2>
+                        <p class="project-case-desc">${project.desc}</p>
+                        <div class="project-case-stack">${stack}</div>
+                        <div class="project-case-links">${links}</div>
                     </div>
                 </article>
             `;
@@ -330,18 +329,6 @@ async function renderProjects() {
             if (countEl) countEl.textContent = count;
         });
 
-        container.querySelectorAll('.project-card').forEach((card) => {
-            card.addEventListener('click', (event) => {
-                if (event.target.closest('a')) return;
-                openProjectDetails(card.dataset.projectId);
-            });
-            card.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    openProjectDetails(card.dataset.projectId);
-                }
-            });
-        });
     } catch (err) {
         container.innerHTML = '<p style="color:var(--text-muted)">Unable to load projects.</p>';
         console.error(err);
@@ -364,7 +351,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         // ignore localStorage errors
     }
     const filterTags = document.querySelectorAll('.filter-tag');
-    const projectCards = () => document.querySelectorAll('#all-projects .project-card');
+    const projectCards = () => document.querySelectorAll('#all-projects .project-case-study');
     const hash = window.location.hash.slice(1);
 
     if (hash) {
