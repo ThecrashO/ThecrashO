@@ -1,5 +1,30 @@
 [
     {
+        "id": "private-school-ai-enrollment-lead-qualification",
+        "title": "Private School AI Enrollment Lead Qualification",
+        "tag": "AI Automation System",
+        "tagIcon": "bi-mortarboard-fill",
+        "categories": ["ai", "automation", "system", "architecture"],
+        "image": "assets/images/projects/Private School AI Enrollment Lead Qualification.png",
+        "imageFit": "contain",
+        "desc": "Helps private school admissions teams automatically qualify, prioritize, and manage incoming student enrollment inquiries.",
+        "stack": ["n8n", "Google Forms", "Google Sheets", "Google Gemini API", "Telegram"],
+        "details": {
+            "problem": "Private school admissions teams may need to manually review every enrollment inquiry, identify serious applicants, handle duplicate submissions, and decide which parents require faster follow-up. This creates repetitive administrative work and makes lead prioritization inconsistent and harder to manage.",
+            "solution": "The system automates enrollment inquiry processing from form submission through validation, duplicate detection, AI qualification, lead scoring, storage, and staff notification. Deterministic safeguards and confidence-based review allow AI recommendations to support the admissions team without making final admission decisions.",
+            "highlights": [
+                "HOT, WARM, and COLD enrollment lead qualification",
+                "Stable Lead ID and exact duplicate detection",
+                "Confidence-based manual review for uncertain results",
+                "Automatic HOT lead alerts with notification failure handling",
+                "Dedicated AI and workflow error handling"
+            ]
+        },
+        "links": {
+            "github": "https://github.com/ThecrashO/private-school-ai-enrollment-lead-qualification"
+        }
+    },
+    {
         "id": "publio",
         "title": "Publio",
         "tag": "Web App",

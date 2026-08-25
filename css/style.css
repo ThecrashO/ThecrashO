@@ -961,6 +961,16 @@ body {
     transition: transform 0.5s ease;
 }
 
+.home-project-image.image-contain,
+.project-case-visual.image-contain {
+    background: #111;
+}
+
+.home-project-image.image-contain img,
+.project-case-visual.image-contain img {
+    object-fit: contain;
+}
+
 .home-project-card:hover .home-project-image img {
     transform: scale(1.035);
 }

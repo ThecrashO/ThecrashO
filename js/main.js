@@ -248,7 +248,7 @@ async function renderHomeHighlights() {
 
     if (projectsEl) {
         try {
-            const res = await fetch('data/projects.json');
+            const res = await fetch('data/projects.json', { cache: 'no-store' });
             if (!res.ok) throw new Error('Could not load selected projects');
             const projects = await res.json();
             const selected = projects.filter((project) => project.featured).concat(projects.filter((project) => !project.featured)).slice(0, 2);
@@ -258,7 +258,7 @@ async function renderHomeHighlights() {
                 const stack = (project.stack || []).slice(0, 3).map((item) => `<span>${item}</span>`).join('');
                 return `
                     <article class="home-project-card">
-                        <a href="${href}" target="_blank" rel="noopener noreferrer" class="home-project-image" aria-label="Open ${project.title}">
+                        <a href="${href}" target="_blank" rel="noopener noreferrer" class="home-project-image${project.imageFit === 'contain' ? ' image-contain' : ''}" aria-label="Open ${project.title}">
                             <img src="${project.image}" alt="${project.title} project screenshot" loading="lazy">
                         </a>
                         <div class="home-project-body">
@@ -354,7 +354,7 @@ async function renderProjects() {
     if (!container) return;
 
     try {
-        const res = await fetch('data/projects.json');
+        const res = await fetch('data/projects.json', { cache: 'no-store' });
         if (!res.ok) throw new Error('Could not load project manifest');
         const projects = await res.json();
         projectManifest = projects;
@@ -365,7 +365,7 @@ async function renderProjects() {
             const links = projectLinksHTML(project, 'project-case-link');
             return `
                 <article class="project-case-study" data-category="${categories}" data-project-id="${project.id}">
-                    <a class="project-case-visual" href="${project.links?.demo || project.links?.template || project.links?.github || '#'}"
+                    <a class="project-case-visual${project.imageFit === 'contain' ? ' image-contain' : ''}" href="${project.links?.demo || project.links?.template || project.links?.github || '#'}"
                         target="_blank" rel="noopener noreferrer" aria-label="Open ${project.title}">
                         <img src="${project.image}" alt="${project.title} project screenshot" loading="lazy">
                         <span class="project-case-open"><i class="bi bi-arrow-up-right"></i></span>
