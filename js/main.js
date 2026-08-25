@@ -241,6 +241,68 @@ function projectLinksHTML(project, modalClass = '') {
     }).join('');
 }
 
+async function renderHomeHighlights() {
+    const projectsEl = document.getElementById('home-selected-projects');
+    const paperEl = document.getElementById('home-latest-paper');
+    if (!projectsEl && !paperEl) return;
+
+    if (projectsEl) {
+        try {
+            const res = await fetch('data/projects.json');
+            if (!res.ok) throw new Error('Could not load selected projects');
+            const projects = await res.json();
+            const selected = projects.filter((project) => project.featured).concat(projects.filter((project) => !project.featured)).slice(0, 2);
+
+            projectsEl.innerHTML = selected.map((project) => {
+                const href = project.links?.demo || project.links?.template || project.links?.github || 'projects.html';
+                const stack = (project.stack || []).slice(0, 3).map((item) => `<span>${item}</span>`).join('');
+                return `
+                    <article class="home-project-card">
+                        <a href="${href}" target="_blank" rel="noopener noreferrer" class="home-project-image" aria-label="Open ${project.title}">
+                            <img src="${project.image}" alt="${project.title} project screenshot" loading="lazy">
+                        </a>
+                        <div class="home-project-body">
+                            <span class="home-project-type"><i class="bi ${project.tagIcon}"></i> ${project.tag}</span>
+                            <h2>${project.title}</h2>
+                            <p>${project.desc}</p>
+                            <div class="home-project-stack">${stack}</div>
+                            <a href="projects.html" class="home-project-more">View project details <i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                    </article>`;
+            }).join('');
+        } catch (err) {
+            projectsEl.innerHTML = '<p class="home-load-error">Unable to load selected projects.</p>';
+            console.error(err);
+        }
+    }
+
+    if (paperEl) {
+        try {
+            const res = await fetch('data/paper.json');
+            if (!res.ok) throw new Error('Could not load latest paper');
+            const papers = await res.json();
+            const paper = papers[0];
+
+            paperEl.innerHTML = paper ? `
+                <article class="home-paper-card" lang="my">
+                    <a href="paper.html?post=${paper.id}" class="home-paper-image">
+                        <img src="${paper.image}" alt="${paper.title}" loading="lazy">
+                    </a>
+                    <div class="home-paper-body">
+                        <span class="home-paper-tag">${paper.tag}</span>
+                        <h2>${paper.title}</h2>
+                        <p>${paper.desc}</p>
+                        <span class="home-paper-meta">${paper.meta}</span>
+                        <a href="paper.html?post=${paper.id}" class="home-paper-link">ဆက်ဖတ်ရန် <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </article>` : '<p class="home-load-error">No papers yet.</p>';
+        } catch (err) {
+            paperEl.innerHTML = '<p class="home-load-error">Unable to load the latest paper.</p>';
+            console.error(err);
+        }
+    }
+}
+
 function openProjectDetails(projectId) {
     const project = projectManifest.find((item) => item.id === projectId);
     const modal = document.getElementById('project-modal');
@@ -361,6 +423,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     await renderSkills();
     await renderStore();
     await renderProjects();
+    await renderHomeHighlights();
 
     document.querySelectorAll('[data-close-project]').forEach((element) => element.addEventListener('click', closeProjectDetails));
     document.addEventListener('keydown', (event) => {
