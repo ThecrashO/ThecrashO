@@ -71,32 +71,32 @@
 [data-theme="light"] {
     color-scheme: light;
 
-    /* A warmer, higher-contrast interpretation of the dark gold identity. */
-    --accent: #A87400;
-    --accent-hover: #875D00;
-    --accent-dim: rgba(168, 116, 0, 0.10);
-    --accent-border: rgba(168, 116, 0, 0.32);
-    --accent-glow: rgba(168, 116, 0, 0.14);
-    --accent-shadow: rgba(168, 116, 0, 0.26);
+    /* Clean light palette: bright surfaces with a lively, readable gold. */
+    --accent: #C58D00;
+    --accent-hover: #A87400;
+    --accent-dim: rgba(197, 141, 0, 0.09);
+    --accent-border: rgba(197, 141, 0, 0.30);
+    --accent-glow: rgba(197, 141, 0, 0.16);
+    --accent-shadow: rgba(197, 141, 0, 0.25);
 
-    --gold: #A87400;
-    --gold-dim: rgba(168, 116, 0, 0.10);
-    --gold-border: rgba(168, 116, 0, 0.32);
+    --gold: #C58D00;
+    --gold-dim: rgba(197, 141, 0, 0.09);
+    --gold-border: rgba(197, 141, 0, 0.30);
 
-    --bg: #F4F0E6;
-    --bg2: #EAE4D7;
-    --bg3: #DED7C8;
-    --surface: rgba(255, 252, 245, 0.96);
+    --bg: #FBFAF7;
+    --bg2: #F2F0EA;
+    --bg3: #E8E5DC;
+    --surface: rgba(255, 255, 255, 0.97);
     --surface-raised: #FFFFFF;
-    --text: #171612;
-    --text-muted: #625E54;
-    --text-faint: #8D877B;
-    --border: rgba(168, 116, 0, 0.24);
-    --border-subtle: rgba(23, 22, 18, 0.12);
-    --shadow: 0 16px 50px rgba(45, 38, 25, 0.12);
-    --shadow-sm: 0 4px 16px rgba(45, 38, 25, 0.09);
-    --grad: radial-gradient(ellipse 70% 50% at top left, rgba(168, 116, 0, 0.10) 0%, transparent 60%),
-            radial-gradient(ellipse 50% 40% at bottom right, rgba(117, 87, 28, 0.07) 0%, transparent 60%);
+    --text: #151515;
+    --text-muted: #595853;
+    --text-faint: #85827A;
+    --border: rgba(197, 141, 0, 0.22);
+    --border-subtle: rgba(21, 21, 21, 0.10);
+    --shadow: 0 16px 48px rgba(31, 29, 24, 0.10);
+    --shadow-sm: 0 4px 16px rgba(31, 29, 24, 0.07);
+    --grad: radial-gradient(ellipse 65% 45% at top left, rgba(255, 215, 0, 0.055) 0%, transparent 62%),
+            radial-gradient(ellipse 45% 35% at bottom right, rgba(197, 141, 0, 0.035) 0%, transparent 62%);
 }
 
 
@@ -312,7 +312,7 @@ body {
     filter: brightness(1.05);
 }
 
-/* Solid gold controls need light text when the light theme uses deep gold. */
+/* Bright gold controls stay crisp against the clean light surfaces. */
 [data-theme="light"] #darkToggle:hover,
 [data-theme="light"] .btn-primary,
 [data-theme="light"] .eco-card:hover .eco-icon-wrap,
@@ -323,12 +323,12 @@ body {
 [data-theme="light"] .currency-btn.active,
 [data-theme="light"] .filter-tag.active,
 [data-theme="light"] .copy-article-btn:hover {
-    color: #fff;
+    color: #151515;
 }
 
 [data-theme="light"] .filter-tag.active .filter-count {
-    background: rgba(255, 255, 255, 0.22);
-    color: #fff;
+    background: rgba(21, 21, 21, 0.14);
+    color: #151515;
 }
 
 .btn-outline {
