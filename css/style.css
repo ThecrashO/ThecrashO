@@ -1144,9 +1144,67 @@ body {
     font-size: 10px;
 }
 
+.home-community-spotlight {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--sp-5);
+    margin: -8px 0 72px;
+    padding: 22px 24px;
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(120deg, var(--accent-dim), var(--surface) 68%);
+    box-shadow: var(--shadow-sm);
+}
+
+.home-community-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-md);
+    background: var(--accent);
+    color: #000;
+    font-size: 24px;
+    box-shadow: 0 8px 22px var(--accent-shadow);
+}
+
+.home-community-kicker {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.home-community-copy h2 {
+    margin-bottom: 5px;
+    color: var(--text);
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.35;
+}
+
+.home-community-copy p {
+    max-width: 720px;
+    color: var(--text-muted);
+    font-family: 'Noto Sans Myanmar', 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.home-community-cta {
+    white-space: nowrap;
+}
+
+[data-theme="light"] .home-community-icon {
+    color: #151515;
+}
+
 .home-ecosystem-links {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     gap: var(--sp-2);
 }
 
@@ -3127,6 +3185,17 @@ body.modal-open #navbar {
 
     .home-service-card > i {
         margin-bottom: var(--sp-4);
+    }
+
+    .home-community-spotlight {
+        grid-template-columns: auto minmax(0, 1fr);
+        margin-bottom: 56px;
+        padding: 20px;
+    }
+
+    .home-community-cta {
+        grid-column: 1 / -1;
+        justify-content: center;
     }
 
     .home-project-body p {
