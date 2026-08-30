@@ -233,12 +233,25 @@ function projectLinksHTML(project, modalClass = '') {
         const label = key === 'github'   ? 'GitHub'
                     : key === 'demo'     ? 'Live Demo'
                     : key === 'template' ? 'Use Template'
+                    : key === 'guide'    ? 'Complete Guide'
+                    : key === 'telegram' ? 'Open Telegram Bot'
                     : key;
         const icon  = key === 'github'   ? 'bi-github'
                     : key === 'template' ? 'bi-puzzle-fill'
+                    : key === 'guide'    ? 'bi-book-fill'
+                    : key === 'telegram' ? 'bi-telegram'
                     : 'bi-box-arrow-up-right';
         return `<a href="${value}" target="_blank" rel="noopener noreferrer" class="project-link ${modalClass}"><i class="bi ${icon}"></i> ${label}</a>`;
     }).join('');
+}
+
+function projectPrimaryLink(project) {
+    return project.links?.demo
+        || project.links?.guide
+        || project.links?.telegram
+        || project.links?.template
+        || project.links?.github
+        || 'projects.html';
 }
 
 async function renderHomeHighlights() {
@@ -254,7 +267,7 @@ async function renderHomeHighlights() {
             const selected = projects.filter((project) => project.featured).concat(projects.filter((project) => !project.featured)).slice(0, 2);
 
             projectsEl.innerHTML = selected.map((project) => {
-                const href = project.links?.demo || project.links?.template || project.links?.github || 'projects.html';
+                const href = projectPrimaryLink(project);
                 const stack = (project.stack || []).slice(0, 3).map((item) => `<span>${item}</span>`).join('');
                 return `
                     <article class="home-project-card">
@@ -365,7 +378,7 @@ async function renderProjects() {
             const links = projectLinksHTML(project, 'project-case-link');
             return `
                 <article class="project-case-study" data-category="${categories}" data-project-id="${project.id}">
-                    <a class="project-case-visual${project.imageFit === 'contain' ? ' image-contain' : ''}" href="${project.links?.demo || project.links?.template || project.links?.github || '#'}"
+                    <a class="project-case-visual${project.imageFit === 'contain' ? ' image-contain' : ''}" href="${projectPrimaryLink(project)}"
                         target="_blank" rel="noopener noreferrer" aria-label="Open ${project.title}">
                         <img src="${project.image}" alt="${project.title} project screenshot" loading="lazy">
                         <span class="project-case-open"><i class="bi bi-arrow-up-right"></i></span>

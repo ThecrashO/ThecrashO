@@ -1,5 +1,34 @@
 [
     {
+        "id": "vocalt-secure-ai-voice-to-text-telegram-bot",
+        "title": "VocalT — Secure AI Voice-to-Text Telegram Bot",
+        "tag": "AI Product",
+        "tagIcon": "bi-mic-fill",
+        "categories": ["ai", "system", "web", "architecture"],
+        "featured": true,
+        "image": "assets/images/projects/VocalT.png",
+        "desc": "Securely transcribes Burmese, English, and mixed-language Telegram audio with user-owned Gemini API keys.",
+        "stack": ["TypeScript", "Node.js", "Telegram Bot API", "Google Gemini API", "Supabase", "Vercel", "Vitest"],
+        "details": {
+            "problem": "A multi-user transcription product needs to process multilingual Telegram audio without exposing, sharing, or centrally owning every user's Gemini credentials.",
+            "solution": "VocalT provides a private, expiring BYOK setup flow, encrypts Gemini API keys with AES-256-GCM before Supabase storage, and decrypts them only on the server when a transcription request requires access.",
+            "role": "Independent Developer and Product Builder",
+            "outcome": "A working MVP that operates as a real multi-user Telegram product across backend engineering, AI integration, database design, security, deployment, and product operations.",
+            "highlights": [
+                "Burmese, English, and mixed-language voice transcription",
+                "Encrypted BYOK Gemini API-key onboarding",
+                "Standard, timestamp, and speaker-separated transcript styles",
+                "Rate limiting, duplicate-update protection, and friendly failure handling",
+                "Privacy controls, complete data deletion, and a mobile-friendly admin dashboard",
+                "Automated TypeScript and Vitest checks with GitHub-to-Vercel deployment"
+            ]
+        },
+        "links": {
+            "guide": "https://vocalt.vercel.app/guide.html",
+            "telegram": "https://t.me/VocalT_AI_Bot"
+        }
+    },
+    {
         "id": "private-school-ai-enrollment-lead-qualification",
         "title": "Private School AI Enrollment Lead Qualification",
         "tag": "AI Automation System",
