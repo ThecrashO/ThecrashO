@@ -55,6 +55,35 @@
         }
     },
     {
+        "id": "order2me-university-canteen-ordering-platform",
+        "title": "Order2Me — University Canteen Ordering Platform",
+        "tag": "Full-Stack Web App",
+        "tagIcon": "bi-shop-window",
+        "categories": ["web", "system", "architecture"],
+        "image": "assets/images/projects/Order2Me.png",
+        "desc": "Connects university customers, canteen shops, and administrators through a secure, mobile-first ordering platform.",
+        "stack": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Supabase", "PostgreSQL", "Vercel", "PWA"],
+        "details": {
+            "problem": "University canteen ordering often depends on physical queues, unclear message-based orders, manual payment-proof handling, and limited visibility into preparation and delivery status.",
+            "solution": "Order2Me brings multi-shop ordering, payment proof, campus landmark delivery, live order progress, shop operations, and platform administration into one role-based mobile-first application, with polling fallback when realtime connections are unreliable.",
+            "role": "Full-Stack Web Developer",
+            "release": "Version 1.0 — UCSY University Edition",
+            "outcome": "A deployed full-stack product designed around the real operating environment of the University of Computer Studies, Yangon.",
+            "highlights": [
+                "Separate customer, shop-owner, and administrator experiences",
+                "Landmark-first UCSY delivery-location workflow with optional map support",
+                "Pending-to-delivered order lifecycle with customer confirmation",
+                "Supabase authentication, Row Level Security, storage, and audited administration",
+                "Realtime order updates with polling fallback for unreliable networks",
+                "Responsive PWA experience with multi-shop data isolation"
+            ]
+        },
+        "links": {
+            "github": "https://github.com/ThecrashO/Order2Me.git",
+            "demo": "https://order2me.vercel.app/"
+        }
+    },
+    {
         "id": "publio",
         "title": "Publio",
         "tag": "Web App",
