@@ -84,44 +84,6 @@
         }
     },
     {
-        "id": "publio",
-        "title": "Publio",
-        "tag": "Web App",
-        "tagIcon": "bi-share-fill",
-        "categories": ["web", "automation"],
-        "featured": false,
-        "image": "assets/images/projects/Publio.png",
-        "desc": "Create once and publish across multiple social channels from one self-hosted dashboard.",
-        "stack": ["Next.js", "Automation", "Social APIs", "Self-hosted"],
-        "impact": { "value": "1", "label": "unified dashboard" },
-        "details": {
-            "problem": "Creators and teams lose time rewriting and publishing the same content across disconnected social platforms.",
-            "solution": "Publio brings writing, scheduling, and multi-channel publishing into one focused workspace that teams can host and control themselves.",
-            "highlights": ["Unified post composer", "Multi-channel publishing workflow", "Self-hosted data ownership"]
-        },
-        "links": {
-            "github": "https://github.com/ThecrashO/Publio",
-            "demo": "https://publio-p.vercel.app/"
-        }
-    },
-    {
-        "id": "crash-archi",
-        "title": "Crash-Archi Workspace",
-        "tag": "AI System",
-        "tagIcon": "bi-diagram-3",
-        "categories": ["ai", "automation", "architecture", "system"],
-        "image": "assets/images/projects/Crash-Archi Workspace.png",
-        "desc": "Turns raw ideas into structured, reviewable, development-ready project packages for AI-assisted building.",
-        "stack": ["AI", "Architecture", "Markdown", "Planning"],
-        "impact": { "value": "4", "label": "planning stages" },
-        "details": {
-            "problem": "Raw product ideas often reach development without enough problem definition, architecture, or implementation guidance.",
-            "solution": "Crash-Archi creates a repeatable workspace for understanding the problem, defining architecture, planning the solution, and preparing AI-ready instructions.",
-            "highlights": ["Problem framing system", "Reviewable architecture outputs", "AI-ready development handoff"]
-        },
-        "links": { "github": "https://github.com/ThecrashO/Crash-Archi" }
-    },
-    {
         "id": "portfolio-website",
         "title": "Portfolio Website",
         "tag": "Web",
@@ -162,5 +124,43 @@
         "links": {
             "github": "https://github.com/ThecrashO/Business-AI-Automation-Suite.git"
         }
+    },
+    {
+        "id": "publio",
+        "title": "Publio",
+        "tag": "Web App",
+        "tagIcon": "bi-share-fill",
+        "categories": ["web", "automation"],
+        "featured": false,
+        "image": "assets/images/projects/Publio.png",
+        "desc": "Create once and publish across multiple social channels from one self-hosted dashboard.",
+        "stack": ["Next.js", "Automation", "Social APIs", "Self-hosted"],
+        "impact": { "value": "1", "label": "unified dashboard" },
+        "details": {
+            "problem": "Creators and teams lose time rewriting and publishing the same content across disconnected social platforms.",
+            "solution": "Publio brings writing, scheduling, and multi-channel publishing into one focused workspace that teams can host and control themselves.",
+            "highlights": ["Unified post composer", "Multi-channel publishing workflow", "Self-hosted data ownership"]
+        },
+        "links": {
+            "github": "https://github.com/ThecrashO/Publio",
+            "demo": "https://publio-p.vercel.app/"
+        }
+    },
+    {
+        "id": "crash-archi",
+        "title": "Crash-Archi Workspace",
+        "tag": "AI System",
+        "tagIcon": "bi-diagram-3",
+        "categories": ["ai", "automation", "architecture", "system"],
+        "image": "assets/images/projects/Crash-Archi Workspace.png",
+        "desc": "Turns raw ideas into structured, reviewable, development-ready project packages for AI-assisted building.",
+        "stack": ["AI", "Architecture", "Markdown", "Planning"],
+        "impact": { "value": "4", "label": "planning stages" },
+        "details": {
+            "problem": "Raw product ideas often reach development without enough problem definition, architecture, or implementation guidance.",
+            "solution": "Crash-Archi creates a repeatable workspace for understanding the problem, defining architecture, planning the solution, and preparing AI-ready instructions.",
+            "highlights": ["Problem framing system", "Reviewable architecture outputs", "AI-ready development handoff"]
+        },
+        "links": { "github": "https://github.com/ThecrashO/Crash-Archi" }
     }
 ]
