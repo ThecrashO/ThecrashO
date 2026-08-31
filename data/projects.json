@@ -142,63 +142,25 @@
         }
     },
     {
-        "id": "ai-lead-qualification-agent",
-        "title": "AI Lead Qualification Agent",
+        "id": "business-ai-automation-suite",
+        "title": "Business AI Automation Suite",
         "tag": "Automation",
         "tagIcon": "bi-robot",
-        "categories": ["ai", "automation"],
-        "image": "assets/images/projects/AI Lead Qualification Agent.png",
-        "desc": "Researches and scores inbound leads, then alerts sales teams when a high-value opportunity appears.",
-        "stack": ["Make.com", "AI", "Google Sheets", "Telegram"],
-        "impact": { "value": "4", "label": "connected services" },
+        "categories": ["ai", "automation", "system"],
+        "image": "assets/images/projects/Business AI Automation Suite.png",
+        "desc": "Three Make.com AI workflows that automate sales qualification, customer support, and invoice processing.",
+        "stack": ["Make.com", "AI Agents", "Google Sheets", "Telegram", "RAG"],
         "details": {
-            "problem": "Sales teams spend valuable time manually researching and prioritizing every inbound lead.",
-            "solution": "The workflow researches each company, evaluates ICP fit with AI, records the score, and immediately routes priority opportunities to Telegram.",
-            "highlights": ["Automated company research", "AI-powered ICP scoring", "Real-time priority alerts"]
+            "problem": "Sales qualification, recurring support questions, and invoice data entry create repetitive operational work across separate business functions.",
+            "solution": "The suite packages three focused Make.com workflows for qualifying and routing leads, answering support questions with internal knowledge and web-search fallback, and extracting Telegram invoice data into structured Google Sheets records.",
+            "highlights": [
+                "AI lead qualification and Telegram engagement",
+                "Knowledge-grounded customer support with RAG and web-search fallback",
+                "Telegram invoice extraction and structured Google Sheets storage"
+            ]
         },
         "links": {
-            "github": "https://github.com/ThecrashO/make-lead-qualification-agent/",
-            "template": "https://us2.make.com/public/shared-scenario/TdQgkyCOjN2/lead-qualification-agent"
-        }
-    },
-    {
-        "id": "ai-knowledge-support-agent",
-        "title": "AI Knowledge Support Agent",
-        "tag": "Automation",
-        "tagIcon": "bi-chat-dots-fill",
-        "categories": ["ai", "automation"],
-        "image": "assets/images/projects/AI Knowledge Support Agent.png",
-        "desc": "Answers Telegram support questions with company knowledge, conversation memory, and web-search fallback.",
-        "stack": ["Make.com", "Gemini", "RAG", "Telegram"],
-        "impact": { "value": "3", "label": "answer layers" },
-        "details": {
-            "problem": "Support teams repeatedly answer the same questions while customers wait for information already available in company documents.",
-            "solution": "The agent retrieves trusted company knowledge first, remembers the conversation, and uses web search only when internal context is insufficient.",
-            "highlights": ["Retrieval-augmented answers", "Conversational memory", "Web-search fallback"]
-        },
-        "links": {
-            "github": "https://github.com/ThecrashO/make-knowledge-support-agent",
-            "template": "https://us2.make.com/public/shared-scenario/GZmmJTjBnkz/knowledge-support-agent"
-        }
-    },
-    {
-        "id": "ai-telegram-invoice-extractor",
-        "title": "AI Telegram Invoice Extractor",
-        "tag": "Automation",
-        "tagIcon": "bi-receipt",
-        "categories": ["ai", "automation"],
-        "image": "assets/images/projects/Telegram Invoice Extractor Agent.png",
-        "desc": "Converts invoice photos and PDFs into structured records and returns an instant Telegram confirmation.",
-        "stack": ["Make.com", "AI OCR", "Google Sheets", "Telegram"],
-        "impact": { "value": "2", "label": "input formats" },
-        "details": {
-            "problem": "Manually copying invoice fields into spreadsheets is slow, repetitive, and vulnerable to typing errors.",
-            "solution": "Users send a photo or PDF in Telegram; AI OCR extracts the fields, saves a structured record, and sends a confirmation summary immediately.",
-            "highlights": ["Photo and PDF support", "Structured invoice records", "Instant confirmation summary"]
-        },
-        "links": {
-            "github": "https://github.com/ThecrashO/make-telegram-invoice-extractor",
-            "template": "https://us2.make.com/public/shared-scenario/SyhefzqLTHO/invoice-extractor-agent"
+            "github": "https://github.com/ThecrashO/Business-AI-Automation-Suite.git"
         }
     }
 ]
