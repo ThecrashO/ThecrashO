@@ -163,6 +163,13 @@ async function renderStore() {
         const items = await res.json();
 
         storeEl.innerHTML = items.map((item) => {
+            const requiresOrder = item.orderViaTelegram === true || Number(item.priceUsd) > 0 || Number(item.priceMmk) > 0;
+            const actionLink = requiresOrder
+                ? `https://t.me/thecrashO?text=${encodeURIComponent(`Hi ThecrashO, I want to order: ${item.name}`)}`
+                : item.link;
+            const actionLabel = requiresOrder ? 'Order via Telegram' : item.button;
+            const actionIcon = requiresOrder ? 'bi-telegram' : 'bi-box-arrow-up-right';
+
             // Feature list HTML
             const featuresHTML = Array.isArray(item.features) && item.features.length
                 ? `<ul class="store-features">
@@ -205,8 +212,8 @@ async function renderStore() {
                     ${audienceHTML}
                     <div class="store-bottom">
                         ${priceDisplay}
-                        <a class="store-cta" href="${item.link}" target="_blank" rel="noopener noreferrer">
-                            <i class="bi bi-box-arrow-up-right"></i> ${item.button}
+                        <a class="store-cta" href="${actionLink}" target="_blank" rel="noopener noreferrer">
+                            <i class="bi ${actionIcon}"></i> ${actionLabel}
                         </a>
                     </div>
                 </div>
