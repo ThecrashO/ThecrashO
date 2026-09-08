@@ -1397,6 +1397,36 @@ body {
     line-height: 1.65;
 }
 
+.store-available-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: var(--sp-3);
+}
+
+.store-available-products span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-pill);
+    background: var(--surface-raised);
+    color: var(--text);
+    font-size: 10px;
+    font-weight: 650;
+    line-height: 1;
+}
+
+.store-available-products i {
+    color: var(--accent);
+    font-size: 11px;
+}
+
+[data-theme="light"] .store-available-products i {
+    color: #171717;
+}
+
 .store-scope-cta {
     white-space: nowrap;
     text-decoration: none;
