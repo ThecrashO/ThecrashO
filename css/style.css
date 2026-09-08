@@ -1559,6 +1559,7 @@ body {
     background: var(--accent-dim);
 }
 
+.price-free,
 .price-usd,
 .price-mmk {
     font-size: var(--text-base);
@@ -1566,6 +1567,7 @@ body {
     letter-spacing: 0.01em;
 }
 
+.price-free,
 .price-usd { color: var(--accent); }
 .price-mmk { color: var(--text-muted); display: none; }
 

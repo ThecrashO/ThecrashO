@@ -189,12 +189,15 @@ async function renderStore() {
                    </div>`
                 : '';
 
-            // Price display (both currencies stacked)
+            // Free items show one label regardless of the selected currency mode.
+            const isFree = Number(item.priceUsd) === 0 && Number(item.priceMmk) === 0;
             const priceDisplay = `
                 <div class="store-price">
                     <div class="price-pill">
-                        <span class="price-usd" data-usd="${item.priceUsd}">${item.priceUsd === 0 ? 'Free' : `$${item.priceUsd}`}</span>
-                        <span class="price-mmk" data-mmk="${item.priceMmk}">${item.priceMmk === 0 ? 'Free' : `${item.priceMmk.toLocaleString()} MMK`}</span>
+                        ${isFree
+                            ? '<span class="price-free">Free</span>'
+                            : `<span class="price-usd" data-usd="${item.priceUsd}">$${item.priceUsd}</span>
+                               <span class="price-mmk" data-mmk="${item.priceMmk}">${item.priceMmk.toLocaleString()} MMK</span>`}
                     </div>
                 </div>`;
 
