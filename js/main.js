@@ -3,27 +3,39 @@
  * NAVIGATION
  * ============================================
  */
-function navigate(page) {
+const pagePaths = { home: '/', store: '/store', contact: '/contact' };
+
+function navigate(page, historyMode = 'push') {
+    const targetPage = document.getElementById(page);
+    if (!targetPage || !pagePaths[page]) return;
+
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-
-    const targetPage = document.getElementById(page);
-    if (!targetPage) return;
-
     targetPage.classList.add('active');
 
     const navBtn = document.getElementById('nav-' + page);
     if (navBtn) navBtn.classList.add('active');
 
-    if (page === 'home') {
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-    } else {
-        history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${page}`);
+    const url = pagePaths[page] + window.location.search;
+    if (historyMode === 'replace') {
+        history.replaceState(null, '', url);
+    } else if (historyMode === 'push' && url !== window.location.pathname + window.location.search + window.location.hash) {
+        history.pushState(null, '', url);
     }
-
+    document.title = page === 'home' ? 'ThecrashO — Generalist × Specialist (with AI)' : `${page === 'store' ? 'Services & Products' : 'Contact'} — ThecrashO`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function syncPageFromLocation() {
+    const legacyPage = window.location.hash.slice(1);
+    const route = window.location.pathname.replace(/\/$/, '') || '/';
+    const page = Object.keys(pagePaths).find(key => pagePaths[key] === route) || 'home';
+    // Keep previously shared /index.html#store and /#contact links working.
+    navigate(Object.hasOwn(pagePaths, legacyPage) ? legacyPage : page, 'replace');
+}
+
+window.addEventListener('popstate', syncPageFromLocation);
+window.addEventListener('hashchange', syncPageFromLocation);
 
 /**
  * ============================================
@@ -97,32 +109,16 @@ setCurrency('both');
  * CONTACT FORM
  * ============================================
  */
-function setInquiryType(type = 'consultation') {
+function setInquiryType(type = 'general') {
     const isConsultation = type === 'consultation';
-    const consultationFields = document.getElementById('consultation-fields');
-    const generalFields = document.getElementById('general-fields');
-    const submitLabel = document.querySelector('#contact-submit span');
-    const description = document.getElementById('contact-form-description');
-
-    if (consultationFields) consultationFields.hidden = !isConsultation;
-    if (generalFields) generalFields.hidden = isConsultation;
-    if (submitLabel) submitLabel.textContent = 'Continue on Telegram';
-    if (description) {
-        description.textContent = isConsultation
-            ? 'Tell me about your business or challenge to request free 90-minute AI consulting.'
-            : 'Have a question or something in mind? Leave a message.';
-    }
-
-    document.querySelectorAll('.inquiry-type-option').forEach((option) => {
-        const input = option.querySelector('input');
-        option.classList.toggle('active', input?.value === type);
-    });
-
-    document.getElementById('cf-challenge')?.toggleAttribute('required', isConsultation);
-    document.getElementById('cf-subject')?.toggleAttribute('required', !isConsultation);
-    document.getElementById('cf-msg')?.toggleAttribute('required', !isConsultation);
-    consultationFields?.querySelectorAll('input, textarea').forEach((field) => { field.disabled = !isConsultation; });
-    generalFields?.querySelectorAll('input, textarea').forEach((field) => { field.disabled = isConsultation; });
+    const note = document.getElementById('consultation-note');
+    if (note) note.hidden = !isConsultation;
+    const message = document.getElementById('cf-msg');
+    if (message) message.placeholder = isConsultation
+        ? 'Tell me about your business, challenge, or idea...'
+        : 'Write your message here...';
+    const status = document.getElementById('contact-form-status');
+    if (status) status.textContent = '';
 }
 
 function openServices() {
@@ -132,13 +128,15 @@ function openServices() {
 
 function openContact(type = 'general', service = '') {
     navigate('contact');
-    const radio = document.querySelector(`input[name="inquiryType"][value="${type}"]`);
-    if (radio) radio.checked = true;
-    setInquiryType(type);
     const subject = document.getElementById('cf-subject');
-    if (subject && type === 'general') subject.value = service ? `Service inquiry: ${service}` : '';
-    const status = document.getElementById('contact-form-status');
-    if (status) status.textContent = '';
+    if (subject) subject.value = type === 'consultation' ? 'consultation' : 'general';
+    setInquiryType(subject?.value);
+    const message = document.getElementById('cf-msg');
+    // Preserve drafts; only replace a previous, untouched service prefill.
+    if (message && (!message.value || message.value === message.dataset.prefill)) {
+        message.value = service ? `I would like to discuss ${service}.\n\n` : '';
+        message.dataset.prefill = message.value;
+    }
     window.setTimeout(() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
 }
 
@@ -149,32 +147,24 @@ function submitContactForm(event) {
     const status = document.getElementById('contact-form-status');
     const payload = Object.fromEntries(new FormData(form).entries());
 
+    ['name', 'contact', 'message'].forEach((name) => {
+        const field = form.elements.namedItem(name);
+        field.setCustomValidity(field.value.trim() ? '' : 'Please fill out this field.');
+    });
     if (!form.reportValidity()) return;
 
-    const text = payload.inquiryType === 'consultation'
-        ? [
-            'Hi Pyae Sone! I would like to request Free 90-Minute AI Consulting.',
-            '',
-            `Name: ${payload.name}`,
-            `Contact: ${payload.contact}`,
-            `Project / Business: ${payload.projectType || 'Not provided'}`,
-            `Preferred time: ${payload.preferredTime || 'Not provided'}`,
-            '',
-            'What I would like to discuss:',
-            payload.challenge,
-            '',
-            'Expected outcome:',
-            payload.outcome || 'Not provided'
-        ].join('\n')
-        : [
-            'Hi Pyae Sone! I have a general inquiry.',
-            '',
-            `Name: ${payload.name}`,
-            `Contact: ${payload.contact}`,
-            `Subject: ${payload.subject}`,
-            '',
-            payload.message
-        ].join('\n');
+    const isConsultation = payload.subject === 'consultation';
+    const text = [
+        isConsultation
+            ? 'Hi Pyae Sone! I would like to request Free 90-Minute AI Consulting.'
+            : 'Hi Pyae Sone! I have a general inquiry.',
+        '',
+        `Name: ${payload.name.trim()}`,
+        `Contact: ${payload.contact.trim()}`,
+        `Subject: ${isConsultation ? 'Free 90-Minute AI Consulting' : 'General Inquiry'}`,
+        '',
+        payload.message.trim()
+    ].join('\n');
 
     status.className = 'contact-form-status success';
     status.textContent = 'Opening Telegram with your message…';
@@ -329,7 +319,7 @@ function projectPrimaryLink(project) {
         || project.links?.telegram
         || project.links?.template
         || project.links?.github
-        || 'projects.html';
+        || '/projects';
 }
 
 async function renderHomeHighlights() {
@@ -357,7 +347,7 @@ async function renderHomeHighlights() {
                             <h2>${project.title}</h2>
                             <p>${project.desc}</p>
                             <div class="home-project-stack">${stack}</div>
-                            <a href="projects.html" class="home-project-more">View project details <i class="bi bi-arrow-up-right"></i></a>
+                            <a href="/projects" class="home-project-more">View project details <i class="bi bi-arrow-up-right"></i></a>
                         </div>
                     </article>`;
             }).join('');
@@ -376,7 +366,7 @@ async function renderHomeHighlights() {
 
             paperEl.innerHTML = paper ? `
                 <article class="home-paper-card" lang="my">
-                    <a href="paper.html?post=${paper.id}" class="home-paper-image">
+                    <a href="/paper?post=${paper.id}" class="home-paper-image">
                         <img src="${paper.image}" alt="${paper.title}" loading="lazy">
                     </a>
                     <div class="home-paper-body">
@@ -384,7 +374,7 @@ async function renderHomeHighlights() {
                         <h2>${paper.title}</h2>
                         <p>${paper.desc}</p>
                         <span class="home-paper-meta">${paper.meta}</span>
-                        <a href="paper.html?post=${paper.id}" class="home-paper-link">ဆက်ဖတ်ရန် <i class="bi bi-arrow-right"></i></a>
+                        <a href="/paper?post=${paper.id}" class="home-paper-link">ဆက်ဖတ်ရန် <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </article>` : '<p class="home-load-error">No papers yet.</p>';
         } catch (err) {
@@ -505,18 +495,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
     const filterTags = document.querySelectorAll('.filter-tag');
     const projectCards = () => document.querySelectorAll('#all-projects .project-case-study');
-    const hash = window.location.hash.slice(1);
-
     const contactForm = document.getElementById('contact-form');
     contactForm?.addEventListener('submit', submitContactForm);
-    document.querySelectorAll('input[name="inquiryType"]').forEach((input) => {
-        input.addEventListener('change', () => setInquiryType(input.value));
-    });
-    setInquiryType(document.querySelector('input[name="inquiryType"]:checked')?.value || 'consultation');
-
-    if (hash) {
-        navigate(hash);
-    }
+    contactForm?.addEventListener('input', (event) => event.target.setCustomValidity?.(''));
+    const subject = document.getElementById('cf-subject');
+    subject?.addEventListener('change', () => setInquiryType(subject.value));
+    setInquiryType(subject?.value);
+    if (document.getElementById('home')) syncPageFromLocation();
 
     await renderSkills();
     await renderStore();

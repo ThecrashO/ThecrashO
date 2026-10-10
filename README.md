@@ -59,6 +59,24 @@ My current focus is AI automation, AI agents, business workflows, and web develo
 
 I don't build with AI just because it is available. I look for useful problems where automation can reduce repetitive work and make a process better.
 
+## Local preview and routing
+
+This static site uses Vercel's `vercel.json` routing configuration:
+
+* `/` — Home
+* `/projects` — Projects
+* `/paper` and `/paper?post=...` — Paper listing and articles
+* `/store` — Services & Products
+* `/contact` — Contact
+
+The Store and Contact routes serve `index.html`; JavaScript activates the correct section.
+Existing `.html` links redirect to clean URLs. Legacy `/#store` and `/#contact`
+links are still recognized. These routes require the included hosting configuration;
+a plain static file server must provide equivalent rewrites when previewing locally.
+
+The contact form opens a draft in the personal Telegram chat. It does not send
+automatically; the visitor confirms sending in Telegram.
+
 ## Links
 
 Portfolio: https://thecrasho.vercel.app

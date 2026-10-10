@@ -30,7 +30,7 @@
     </script>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css?v=14" />
+    <link rel="stylesheet" href="/css/style.css?v=15" />
 </head>
 
 <body>
@@ -47,7 +47,7 @@
                     into clear, dependable systems.
                 </p>
                 <div class="hero-actions">
-                    <a href="projects.html" class="btn-primary">
+                    <a href="/projects" class="btn-primary">
                         <i class="bi bi-grid-3x3-gap-fill"></i> View Projects
                     </a>
                     <button class="btn-outline" onclick="openContact('general')"><i class="bi bi-send"></i> Contact Me</button>
@@ -108,7 +108,7 @@
         <section class="home-section">
             <div class="home-section-heading">
                 <div class="section-title">Selected Projects</div>
-                <a href="projects.html" class="home-text-link">View all projects <i class="bi bi-arrow-right"></i></a>
+                <a href="/projects" class="home-text-link">View all projects <i class="bi bi-arrow-right"></i></a>
             </div>
             <div class="home-projects-grid" id="home-selected-projects"></div>
         </section>
@@ -148,7 +148,7 @@
         <section class="home-section">
             <div class="home-section-heading">
                 <div class="section-title">Latest Paper</div>
-                <a href="paper.html" class="home-text-link">All papers <i class="bi bi-arrow-right"></i></a>
+                <a href="/paper" class="home-text-link">All papers <i class="bi bi-arrow-right"></i></a>
             </div>
             <div id="home-latest-paper"></div>
         </section>
@@ -318,47 +318,50 @@
                 <h2 id="services-title">How I can help</h2>
                 <p>Choose a service to discuss your requirements.</p>
             </div>
-            <div class="services-list">
-                <article class="service-offering service-offering-consultation">
-                    <span class="service-number" aria-hidden="true">01</span>
-                    <div class="service-copy">
-                        <div class="service-heading"><h3>Free 90-Minute AI Consulting</h3><span class="service-free-badge">Free</span></div>
-                        <p>Explore how AI fits your business, identify useful automation opportunities, and plan practical next steps.</p>
-                        <small>90 minutes · Online · Discussion and recommendations</small>
-                    </div>
-                    <button type="button" class="service-action" onclick="openContact('consultation')">Request a session <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
-                </article>
+            <article class="service-consultation-banner">
+                <div class="service-icon" aria-hidden="true"><i class="bi bi-chat-square-text"></i></div>
+                <div class="service-copy">
+                    <h3>Free 90-Minute AI Consulting</h3>
+                    <p>Explore how AI fits your business, identify useful automation opportunities, and plan practical next steps.</p>
+                    <small>90 minutes · Online · Discussion and recommendations</small>
+                </div>
+                <button type="button" class="btn-primary service-consultation-cta" onclick="openContact('consultation')">Request a session <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
+            </article>
+            <div class="services-grid">
                 <article class="service-offering">
-                    <span class="service-number" aria-hidden="true">02</span>
+                    <div class="service-icon" aria-hidden="true"><i class="bi bi-mortarboard"></i></div>
                     <div class="service-copy">
                         <h3>AI Training</h3>
                         <p>Practical guidance on using AI tools, writing effective prompts, and applying AI to everyday business tasks.</p>
                     </div>
+                    <div class="service-tags" aria-label="Training topics"><span>AI tools</span><span>Prompting</span><span>Business use</span></div>
                     <button type="button" class="service-action" onclick="openContact('general', 'AI Training')">Discuss training <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
                 </article>
                 <article class="service-offering">
-                    <span class="service-number" aria-hidden="true">03</span>
+                    <div class="service-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></div>
                     <div class="service-copy">
                         <h3>AI Automation Workflow Building</h3>
                         <p>Custom workflows that connect business tools and automate repetitive processes, from lead qualification to support and document processing.</p>
                     </div>
+                    <div class="service-tags" aria-label="Workflow areas"><span>Tool integration</span><span>Lead workflows</span><span>Document processing</span></div>
                     <button type="button" class="service-action" onclick="openContact('general', 'AI Automation Workflow Building')">Discuss a workflow <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
                 </article>
                 <article class="service-offering">
-                    <span class="service-number" aria-hidden="true">04</span>
+                    <div class="service-icon" aria-hidden="true"><i class="bi bi-window"></i></div>
                     <div class="service-copy">
                         <h3>Website Development</h3>
                         <p>Personal portfolio, product showcase, and e-commerce websites, plus custom websites and useful web applications for your business or project.</p>
                     </div>
+                    <div class="service-tags" aria-label="Website types"><span>Portfolio</span><span>E-commerce</span><span>Web apps</span></div>
                     <button type="button" class="service-action" onclick="openContact('general', 'Website Development')">Discuss a website <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
                 </article>
                 <article class="service-offering">
-                    <span class="service-number" aria-hidden="true">05</span>
+                    <div class="service-icon" aria-hidden="true"><i class="bi bi-pen"></i></div>
                     <div class="service-copy">
                         <h3>Humanized Writing Packages</h3>
                         <p>Content writing, copywriting, and script writing with natural language, a clear purpose, and a voice that connects with your audience.</p>
-                        <small>Package scope is tailored to your writing needs.</small>
                     </div>
+                    <div class="service-tags" aria-label="Writing services"><span>Content</span><span>Copywriting</span><span>Scripts</span></div>
                     <button type="button" class="service-action" onclick="openContact('general', 'Humanized Writing Packages')">Discuss writing <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
                 </article>
             </div>
@@ -404,40 +407,33 @@
         <div class="section-title">Get in Touch</div>
         <div class="contact-grid">
             <div class="contact-info">
-                <div class="contact-overview-card">
-                    <span class="contact-availability">LET’S TALK</span>
-                    <h2>A clearer plan.<br>A better next step.</h2>
-                    <p>Have an AI, automation, or product idea? Let’s talk through your challenge and find a practical way forward.</p>
-                    <div class="consultation-summary"><span>Free AI consulting</span><strong>90 min <span>· Online</span></strong></div>
-                    <div class="consultation-points">
-                        <div><i class="bi bi-check2"></i><span>Understand your challenge</span></div>
-                        <div><i class="bi bi-check2"></i><span>Explore solutions and next steps</span></div>
-                    </div>
-                    <p class="contact-scope">Discussion and recommendations. Implementation is a separate service.</p>
+                <p class="contact-info-intro">Have a project in mind or a question? Reach out on Telegram or leave a message using the form.</p>
+                <div class="contact-item">
+                    <i class="bi bi-telegram" aria-hidden="true"></i>
+                    <div><div class="contact-item-label">Telegram (Primary)</div><a class="contact-item-val" href="https://t.me/thecrashO" target="_blank" rel="noopener noreferrer">@thecrashO</a></div>
                 </div>
-                <div class="contact-direct">
-                    <span>Prefer direct contact?</span>
-                    <div>
-                        <a href="https://t.me/thecrashO" target="_blank" rel="noopener noreferrer"><i class="bi bi-telegram"></i> @thecrashO</a>
-                        <a href="mailto:thecrashoai@gmail.com"><i class="bi bi-envelope"></i> Email</a>
-                    </div>
+                <div class="contact-item">
+                    <i class="bi bi-envelope" aria-hidden="true"></i>
+                    <div><div class="contact-item-label">Email</div><a class="contact-item-val" href="mailto:thecrashoai@gmail.com">thecrashoai@gmail.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <i class="bi bi-clock" aria-hidden="true"></i>
+                    <div><div class="contact-item-label">Response Time</div><div class="contact-item-val">Within 24 hours</div></div>
+                </div>
+                <div class="contact-item">
+                    <i class="bi bi-globe" aria-hidden="true"></i>
+                    <div><div class="contact-item-label">Available For</div><div class="contact-item-val">Remote · Worldwide</div></div>
+                </div>
+                <div class="contact-item">
+                    <i class="bi bi-briefcase" aria-hidden="true"></i>
+                    <div><div class="contact-item-label">Open To</div><div class="contact-item-val">Projects · Collabs · Consults</div></div>
                 </div>
             </div>
 
             <form class="contact-form" id="contact-form" novalidate>
                 <div class="contact-form-intro">
                     <h2 id="contact-form-title">Start a conversation</h2>
-                    <p id="contact-form-description">Choose the option that best matches your message.</p>
-                </div>
-                <div class="inquiry-type-grid" role="radiogroup" aria-label="Inquiry type">
-                    <label class="inquiry-type-option active">
-                        <input type="radio" name="inquiryType" value="consultation" checked />
-                        <span>Free Consultation</span>
-                    </label>
-                    <label class="inquiry-type-option">
-                        <input type="radio" name="inquiryType" value="general" />
-                        <span>General Inquiry</span>
-                    </label>
+                    <p>Tell me what you have in mind.</p>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
@@ -450,44 +446,17 @@
                             placeholder="@username or email" required maxlength="120" />
                     </div>
                 </div>
-                <div id="consultation-fields">
-                    <div class="form-group">
-                        <label class="form-label" for="cf-challenge">What would you like to discuss? <span>*</span></label>
-                        <textarea id="cf-challenge" name="challenge" class="form-textarea"
-                            placeholder="Briefly describe the problem, idea, or process..." maxlength="1500"></textarea>
-                    </div>
-                    <details class="contact-extra-details">
-                        <summary>Additional details <span>Optional</span><i class="bi bi-chevron-down" aria-hidden="true"></i></summary>
-                        <div class="contact-extra-content">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label class="form-label" for="cf-project-type">Project / Business</label>
-                                    <input type="text" id="cf-project-type" name="projectType" class="form-input" placeholder="Product, workflow..." maxlength="120" />
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="cf-time">Preferred Time</label>
-                                    <input type="text" id="cf-time" name="preferredTime" class="form-input" placeholder="Day, time & timezone" maxlength="120" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="cf-outcome">Expected Outcome</label>
-                                <textarea id="cf-outcome" name="outcome" class="form-textarea form-textarea-sm" placeholder="What would a useful result look like?" maxlength="800"></textarea>
-                            </div>
-                        </div>
-                    </details>
-                    <p class="consultation-note">Session time is confirmed after we connect.</p>
+                <div class="form-group">
+                    <label class="form-label" for="cf-subject">Subject <span>*</span></label>
+                    <select id="cf-subject" name="subject" class="form-input" required aria-describedby="consultation-note">
+                        <option value="general">General Inquiry</option>
+                        <option value="consultation">Free 90-Minute AI Consulting</option>
+                    </select>
+                    <p class="consultation-note" id="consultation-note" hidden>Free online discussion and recommendations. Session time is confirmed after we connect; implementation is a separate service.</p>
                 </div>
-                <div id="general-fields" hidden>
-                    <div class="form-group">
-                        <label class="form-label" for="cf-subject">Subject <span>*</span></label>
-                        <input type="text" id="cf-subject" name="subject" class="form-input"
-                            placeholder="What is this about?" maxlength="120" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="cf-msg">Message <span>*</span></label>
-                        <textarea id="cf-msg" name="message" class="form-textarea"
-                            placeholder="Write your message here..." maxlength="2000"></textarea>
-                    </div>
+                <div class="form-group">
+                    <label class="form-label" for="cf-msg">Message <span>*</span></label>
+                    <textarea id="cf-msg" name="message" class="form-textarea" placeholder="Write your message here..." required maxlength="2000"></textarea>
                 </div>
                 <button type="submit" class="btn-primary contact-submit" id="contact-submit">
                     <i class="bi bi-telegram"></i> <span>Continue on Telegram</span><i class="bi bi-arrow-up-right" aria-hidden="true"></i>
@@ -503,10 +472,10 @@
         <button class="nav-btn active" id="nav-home" onclick="navigate('home')">
             <i class="bi bi-house-fill"></i>Home
         </button>
-        <button class="nav-btn" id="nav-projects" onclick="window.location.href='projects.html'">
+        <button class="nav-btn" id="nav-projects" onclick="window.location.href='/projects'">
             <i class="bi bi-grid-3x3-gap-fill"></i>Projects
         </button>
-        <button class="nav-btn" id="nav-blog" onclick="window.location.href='paper.html'">
+        <button class="nav-btn" id="nav-blog" onclick="window.location.href='/paper'">
             <i class="bi bi-journal-text"></i>Paper
         </button>
         <button class="nav-btn" id="nav-store" onclick="navigate('store')">
@@ -522,7 +491,7 @@
     </nav>
 
     <!-- Main JavaScript -->
-    <script src="js/main.js?v=13"></script>
+    <script src="/js/main.js?v=14"></script>
 </body>
 
 </html>

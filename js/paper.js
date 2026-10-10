@@ -75,7 +75,7 @@ function renderListing(posts) {
                 <h3 class="blog-title">${post.title}</h3>
                 <p class="blog-desc">${post.desc}</p>
                 <div class="blog-meta">${post.meta}</div>
-                <a href="paper.html?post=${post.id}" class="blog-link">Read More →</a>
+                <a href="/paper?post=${post.id}" class="blog-link">Read More →</a>
             </div>
         </article>
     `).join('');
