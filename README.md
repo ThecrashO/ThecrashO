@@ -79,7 +79,7 @@ automatically; the visitor confirms sending in Telegram.
 
 ## Links
 
-Portfolio: https://thecrasho.vercel.app
+Portfolio: https://thecrasho.com
 
 GitHub: https://github.com/ThecrashO
 
