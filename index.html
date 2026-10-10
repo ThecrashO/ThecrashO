@@ -348,51 +348,30 @@
         <div class="section-title">Get in Touch</div>
         <div class="contact-grid">
             <div class="contact-info">
-                <p style="font-size:13.5px;color:var(--text-muted);line-height:1.75;margin-bottom:6px">
-                    Telegram is the fastest way to reach me — I reply within a few hours.
-                    For project inquiries, use the form and I'll get back within 24h.
-                </p>
-                <div class="contact-item">
-                    <i class="bi bi-telegram"></i>
-                    <div>
-                        <div class="contact-item-label">Telegram (Primary)</div>
-                        <div class="contact-item-val">@thecrasho</div>
+                <div class="contact-overview-card">
+                    <span class="contact-availability"><span></span> Free consultation available</span>
+                    <h2>Let’s clarify your next move.</h2>
+                    <p>Bring your AI, automation, product, or workflow idea. We’ll use the session to understand the problem and identify practical next steps.</p>
+                    <div class="consultation-points">
+                        <div><i class="bi bi-clock"></i><span><strong>90 minutes</strong><small>Online discovery session</small></span></div>
+                        <div><i class="bi bi-compass"></i><span><strong>Focused direction</strong><small>Ideas, options, and next steps</small></span></div>
+                        <div><i class="bi bi-check2-circle"></i><span><strong>No commitment</strong><small>Consultation only, no implementation included</small></span></div>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <i class="bi bi-envelope"></i>
+                <div class="contact-direct">
+                    <span>Prefer direct contact?</span>
                     <div>
-                        <div class="contact-item-label">Email</div>
-                        <div class="contact-item-val">thecrashoai@gmail.com</div>
+                        <a href="https://t.me/thecrashO" target="_blank" rel="noopener noreferrer"><i class="bi bi-telegram"></i> @thecrashO</a>
+                        <a href="mailto:thecrashoai@gmail.com"><i class="bi bi-envelope"></i> Email</a>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <i class="bi bi-clock"></i>
-                    <div>
-                        <div class="contact-item-label">Response Time</div>
-                        <div class="contact-item-val">Within 24 hours</div>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="bi bi-globe"></i>
-                    <div>
-                        <div class="contact-item-label">Available For</div>
-                        <div class="contact-item-val">Remote · Worldwide</div>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="bi bi-briefcase"></i>
-                    <div>
-                        <div class="contact-item-label">Open To</div>
-                        <div class="contact-item-val">Projects · Collabs · Consults</div>
-                    </div>
+                    <small>Typical response time: within 24 hours</small>
                 </div>
             </div>
 
             <form class="contact-form" id="contact-form" novalidate>
                 <div class="contact-form-intro">
-                    <span class="contact-form-kicker">Choose an inquiry type</span>
-                    <h2 id="contact-form-title">How can I help?</h2>
+                    <span class="contact-form-kicker">Send an inquiry</span>
+                    <h2 id="contact-form-title">Tell me what you need.</h2>
                     <p id="contact-form-description">Choose the option that best matches your message.</p>
                 </div>
                 <div class="inquiry-type-grid" role="radiogroup" aria-label="Inquiry type">
@@ -407,23 +386,32 @@
                         <span><strong>General Inquiry</strong><small>Questions and other messages</small></span>
                     </label>
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="cf-name">Your Name</label>
-                    <input type="text" id="cf-name" name="name" class="form-input" placeholder="Your name" required maxlength="80" />
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="cf-contact">Telegram or Email</label>
-                    <input type="text" id="cf-contact" name="contact" class="form-input"
-                        placeholder="@username or email@example.com" required maxlength="120" />
-                </div>
-                <div id="consultation-fields">
+                <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label" for="cf-project-type">Project or Business Type</label>
-                        <input type="text" id="cf-project-type" name="projectType" class="form-input"
-                            placeholder="Business, project, product, workflow..." maxlength="120" />
+                        <label class="form-label" for="cf-name">Your Name <span>*</span></label>
+                        <input type="text" id="cf-name" name="name" class="form-input" placeholder="Your name" required maxlength="80" />
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="cf-challenge">What would you like to discuss?</label>
+                        <label class="form-label" for="cf-contact">Telegram or Email <span>*</span></label>
+                        <input type="text" id="cf-contact" name="contact" class="form-input"
+                            placeholder="@username or email" required maxlength="120" />
+                    </div>
+                </div>
+                <div id="consultation-fields">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="cf-project-type">Project / Business</label>
+                            <input type="text" id="cf-project-type" name="projectType" class="form-input"
+                                placeholder="Product, workflow..." maxlength="120" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cf-time">Preferred Time</label>
+                            <input type="text" id="cf-time" name="preferredTime" class="form-input"
+                                placeholder="Day and time" maxlength="120" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cf-challenge">What would you like to discuss? <span>*</span></label>
                         <textarea id="cf-challenge" name="challenge" class="form-textarea"
                             placeholder="Briefly describe the problem, idea, or process..." maxlength="1500"></textarea>
                     </div>
@@ -432,21 +420,16 @@
                         <textarea id="cf-outcome" name="outcome" class="form-textarea form-textarea-sm"
                             placeholder="What would a useful result look like?" maxlength="800"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="cf-time">Preferred Day &amp; Time</label>
-                        <input type="text" id="cf-time" name="preferredTime" class="form-input"
-                            placeholder="e.g. Sunday, 2:00 PM (Myanmar time)" maxlength="120" />
-                    </div>
-                    <p class="consultation-note"><i class="bi bi-info-circle"></i> This is a consultation and recommendation session. Implementation is not included. Your requested time will be confirmed after review.</p>
+                    <p class="consultation-note"><i class="bi bi-info-circle"></i> Your preferred time is a request and will be confirmed after review.</p>
                 </div>
                 <div id="general-fields" hidden>
                     <div class="form-group">
-                        <label class="form-label" for="cf-subject">Subject</label>
+                        <label class="form-label" for="cf-subject">Subject <span>*</span></label>
                         <input type="text" id="cf-subject" name="subject" class="form-input"
                             placeholder="What is this about?" maxlength="120" />
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="cf-msg">Message</label>
+                        <label class="form-label" for="cf-msg">Message <span>*</span></label>
                         <textarea id="cf-msg" name="message" class="form-textarea"
                             placeholder="Write your message here..." maxlength="2000"></textarea>
                     </div>
