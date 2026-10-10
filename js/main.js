@@ -94,23 +94,80 @@ setCurrency('both');
 
 /**
  * ============================================
- * SEND VIA TELEGRAM
+ * CONTACT FORM
  * ============================================
  */
-function sendTelegram() {
-    const name = document.getElementById('cf-name')?.value || 'Someone';
-    const contact = document.getElementById('cf-contact')?.value || '';
-    const subject = document.getElementById('cf-subject')?.value || 'Inquiry';
-    const msg = document.getElementById('cf-msg')?.value || '';
+function setInquiryType(type = 'consultation') {
+    const isConsultation = type === 'consultation';
+    const consultationFields = document.getElementById('consultation-fields');
+    const generalFields = document.getElementById('general-fields');
+    const submitLabel = document.querySelector('#contact-submit span');
+    const description = document.getElementById('contact-form-description');
 
-    const text = encodeURIComponent(
-        `Hi Pyae Sone! I'm ${name}.\n` +
-        `Contact: ${contact}\n` +
-        `Subject: ${subject}\n\n` +
-        `${msg}`
-    );
+    if (consultationFields) consultationFields.hidden = !isConsultation;
+    if (generalFields) generalFields.hidden = isConsultation;
+    if (submitLabel) submitLabel.textContent = isConsultation ? 'Request Free Consultation' : 'Send General Inquiry';
+    if (description) {
+        description.textContent = isConsultation
+            ? 'Request a free 90-minute discovery session for your idea, project, or workflow.'
+            : 'Send a question, collaboration note, or other message.';
+    }
 
-    window.open(`https://t.me/thecrashO?text=${text}`, '_blank');
+    document.querySelectorAll('.inquiry-type-option').forEach((option) => {
+        const input = option.querySelector('input');
+        option.classList.toggle('active', input?.value === type);
+    });
+
+    document.getElementById('cf-challenge')?.toggleAttribute('required', isConsultation);
+    document.getElementById('cf-subject')?.toggleAttribute('required', !isConsultation);
+    document.getElementById('cf-msg')?.toggleAttribute('required', !isConsultation);
+}
+
+function openContact(type = 'general') {
+    navigate('contact');
+    const radio = document.querySelector(`input[name="inquiryType"][value="${type}"]`);
+    if (radio) radio.checked = true;
+    setInquiryType(type);
+    window.setTimeout(() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+}
+
+function submitContactForm(event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const status = document.getElementById('contact-form-status');
+    const payload = Object.fromEntries(new FormData(form).entries());
+
+    if (!form.reportValidity()) return;
+
+    const text = payload.inquiryType === 'consultation'
+        ? [
+            'Hi Pyae Sone! I would like to request a free 90-minute consultation.',
+            '',
+            `Name: ${payload.name}`,
+            `Contact: ${payload.contact}`,
+            `Project / Business: ${payload.projectType || 'Not provided'}`,
+            `Preferred time: ${payload.preferredTime || 'Not provided'}`,
+            '',
+            'What I would like to discuss:',
+            payload.challenge,
+            '',
+            'Expected outcome:',
+            payload.outcome || 'Not provided'
+        ].join('\n')
+        : [
+            'Hi Pyae Sone! I have a general inquiry.',
+            '',
+            `Name: ${payload.name}`,
+            `Contact: ${payload.contact}`,
+            `Subject: ${payload.subject}`,
+            '',
+            payload.message
+        ].join('\n');
+
+    status.className = 'contact-form-status success';
+    status.textContent = 'Opening Telegram with your message…';
+    window.open(`https://t.me/thecrashO?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
 }
 
 
@@ -438,6 +495,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     const filterTags = document.querySelectorAll('.filter-tag');
     const projectCards = () => document.querySelectorAll('#all-projects .project-case-study');
     const hash = window.location.hash.slice(1);
+
+    const contactForm = document.getElementById('contact-form');
+    contactForm?.addEventListener('submit', submitContactForm);
+    document.querySelectorAll('input[name="inquiryType"]').forEach((input) => {
+        input.addEventListener('change', () => setInquiryType(input.value));
+    });
+    setInquiryType(document.querySelector('input[name="inquiryType"]:checked')?.value || 'consultation');
 
     if (hash) {
         navigate(hash);

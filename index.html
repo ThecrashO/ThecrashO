@@ -50,7 +50,7 @@
                     <a href="projects.html" class="btn-primary">
                         <i class="bi bi-grid-3x3-gap-fill"></i> View Projects
                     </a>
-                    <button class="btn-outline" onclick="navigate('contact')"><i class="bi bi-send"></i> Contact Me</button>
+                    <button class="btn-outline" onclick="openContact('general')"><i class="bi bi-send"></i> Contact Me</button>
                 </div>
                 <div class="hero-secondary-actions">
                     <a href="assets/docs/Pyae_Sone_Phyo_AI_Automation_CV.pdf" download class="hero-sub-link"><i class="bi bi-download"></i> Download CV</a>
@@ -172,7 +172,7 @@
                 <p>Tell me about the repetitive process, tool, or workflow you want to improve.</p>
             </div>
             <div class="home-cta-actions">
-                <button class="btn-primary" onclick="navigate('contact')"><i class="bi bi-send-fill"></i> Start a Conversation</button>
+                <button class="btn-primary" onclick="openContact('consultation')"><i class="bi bi-calendar-check-fill"></i> Book Free Consultation</button>
                 <a href="https://t.me/thecrashO" target="_blank" rel="noopener noreferrer" class="btn-outline"><i class="bi bi-telegram"></i> Telegram</a>
             </div>
         </section>
@@ -389,30 +389,77 @@
                 </div>
             </div>
 
-            <div class="contact-form">
-                <div class="form-group">
-                    <label class="form-label">Your Name</label>
-                    <input type="text" id="cf-name" class="form-input" placeholder="Your name" />
+            <form class="contact-form" id="contact-form" novalidate>
+                <div class="contact-form-intro">
+                    <span class="contact-form-kicker">Choose an inquiry type</span>
+                    <h2 id="contact-form-title">How can I help?</h2>
+                    <p id="contact-form-description">Choose the option that best matches your message.</p>
+                </div>
+                <div class="inquiry-type-grid" role="radiogroup" aria-label="Inquiry type">
+                    <label class="inquiry-type-option active">
+                        <input type="radio" name="inquiryType" value="consultation" checked />
+                        <i class="bi bi-chat-square-text-fill"></i>
+                        <span><strong>Free Consultation</strong><small>90-minute discovery session</small></span>
+                    </label>
+                    <label class="inquiry-type-option">
+                        <input type="radio" name="inquiryType" value="general" />
+                        <i class="bi bi-envelope-fill"></i>
+                        <span><strong>General Inquiry</strong><small>Questions and other messages</small></span>
+                    </label>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Telegram or Email</label>
-                    <input type="text" id="cf-contact" class="form-input"
-                        placeholder="@username or email@example.com" />
+                    <label class="form-label" for="cf-name">Your Name</label>
+                    <input type="text" id="cf-name" name="name" class="form-input" placeholder="Your name" required maxlength="80" />
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Subject</label>
-                    <input type="text" id="cf-subject" class="form-input"
-                        placeholder="Project, consultation, collab..." />
+                    <label class="form-label" for="cf-contact">Telegram or Email</label>
+                    <input type="text" id="cf-contact" name="contact" class="form-input"
+                        placeholder="@username or email@example.com" required maxlength="120" />
                 </div>
-                <div class="form-group">
-                    <label class="form-label">Message</label>
-                    <textarea id="cf-msg" class="form-textarea"
-                        placeholder="Tell me what you're building or need help with..."></textarea>
+                <div id="consultation-fields">
+                    <div class="form-group">
+                        <label class="form-label" for="cf-project-type">Project or Business Type</label>
+                        <input type="text" id="cf-project-type" name="projectType" class="form-input"
+                            placeholder="Business, project, product, workflow..." maxlength="120" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cf-challenge">What would you like to discuss?</label>
+                        <textarea id="cf-challenge" name="challenge" class="form-textarea"
+                            placeholder="Briefly describe the problem, idea, or process..." maxlength="1500"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cf-outcome">Expected Outcome</label>
+                        <textarea id="cf-outcome" name="outcome" class="form-textarea form-textarea-sm"
+                            placeholder="What would a useful result look like?" maxlength="800"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cf-time">Preferred Day &amp; Time</label>
+                        <input type="text" id="cf-time" name="preferredTime" class="form-input"
+                            placeholder="e.g. Sunday, 2:00 PM (Myanmar time)" maxlength="120" />
+                    </div>
+                    <p class="consultation-note"><i class="bi bi-info-circle"></i> This is a consultation and recommendation session. Implementation is not included. Your requested time will be confirmed after review.</p>
                 </div>
-                <button class="btn-primary" style="width:100%;justify-content:center" onclick="sendTelegram()">
-                    <i class="bi bi-send"></i> Send via Telegram
+                <div id="general-fields" hidden>
+                    <div class="form-group">
+                        <label class="form-label" for="cf-subject">Subject</label>
+                        <input type="text" id="cf-subject" name="subject" class="form-input"
+                            placeholder="What is this about?" maxlength="120" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="cf-msg">Message</label>
+                        <textarea id="cf-msg" name="message" class="form-textarea"
+                            placeholder="Write your message here..." maxlength="2000"></textarea>
+                    </div>
+                </div>
+                <div class="form-honeypot" aria-hidden="true">
+                    <label for="cf-website">Website</label>
+                    <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off" />
+                </div>
+                <button type="submit" class="btn-primary contact-submit" id="contact-submit">
+                    <i class="bi bi-send"></i> <span>Request Free Consultation</span>
                 </button>
-            </div>
+                <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
+            </form>
         </div>
     </div>
 
@@ -440,7 +487,7 @@
     </nav>
 
     <!-- Main JavaScript -->
-    <script src="js/main.js?v=10"></script>
+    <script src="js/main.js?v=11"></script>
 </body>
 
 </html>
