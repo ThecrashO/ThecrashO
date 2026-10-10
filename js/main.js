@@ -106,11 +106,11 @@ function setInquiryType(type = 'consultation') {
 
     if (consultationFields) consultationFields.hidden = !isConsultation;
     if (generalFields) generalFields.hidden = isConsultation;
-    if (submitLabel) submitLabel.textContent = isConsultation ? 'Request Free Consultation' : 'Send General Inquiry';
+    if (submitLabel) submitLabel.textContent = 'Continue on Telegram';
     if (description) {
         description.textContent = isConsultation
-            ? 'Request a free 90-minute discovery session for your idea, project, or workflow.'
-            : 'Send a question, collaboration note, or other message.';
+            ? 'Tell me about your idea or challenge to request a free session.'
+            : 'Have a question or something in mind? Leave a message.';
     }
 
     document.querySelectorAll('.inquiry-type-option').forEach((option) => {
@@ -121,6 +121,8 @@ function setInquiryType(type = 'consultation') {
     document.getElementById('cf-challenge')?.toggleAttribute('required', isConsultation);
     document.getElementById('cf-subject')?.toggleAttribute('required', !isConsultation);
     document.getElementById('cf-msg')?.toggleAttribute('required', !isConsultation);
+    consultationFields?.querySelectorAll('input, textarea').forEach((field) => { field.disabled = !isConsultation; });
+    generalFields?.querySelectorAll('input, textarea').forEach((field) => { field.disabled = isConsultation; });
 }
 
 function openContact(type = 'general') {

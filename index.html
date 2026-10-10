@@ -30,7 +30,7 @@
     </script>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css?v=12" />
+    <link rel="stylesheet" href="css/style.css?v=13" />
 </head>
 
 <body>
@@ -349,14 +349,15 @@
         <div class="contact-grid">
             <div class="contact-info">
                 <div class="contact-overview-card">
-                    <span class="contact-availability"><span></span> Free consultation available</span>
-                    <h2>Let’s clarify your next move.</h2>
-                    <p>Bring your AI, automation, product, or workflow idea. We’ll use the session to understand the problem and identify practical next steps.</p>
+                    <span class="contact-availability">LET’S TALK</span>
+                    <h2>A clearer plan.<br>A better next step.</h2>
+                    <p>Have an AI, automation, or product idea? Let’s talk through your challenge and find a practical way forward.</p>
+                    <div class="consultation-summary"><span>Free consultation</span><strong>90 min <span>· Online</span></strong></div>
                     <div class="consultation-points">
-                        <div><i class="bi bi-clock"></i><span><strong>90 minutes</strong><small>Online discovery session</small></span></div>
-                        <div><i class="bi bi-compass"></i><span><strong>Focused direction</strong><small>Ideas, options, and next steps</small></span></div>
-                        <div><i class="bi bi-check2-circle"></i><span><strong>No commitment</strong><small>Consultation only, no implementation included</small></span></div>
+                        <div><i class="bi bi-check2"></i><span>Understand your challenge</span></div>
+                        <div><i class="bi bi-check2"></i><span>Explore solutions and next steps</span></div>
                     </div>
+                    <p class="contact-scope">Discussion and recommendations. Implementation is a separate service.</p>
                 </div>
                 <div class="contact-direct">
                     <span>Prefer direct contact?</span>
@@ -364,32 +365,28 @@
                         <a href="https://t.me/thecrashO" target="_blank" rel="noopener noreferrer"><i class="bi bi-telegram"></i> @thecrashO</a>
                         <a href="mailto:thecrashoai@gmail.com"><i class="bi bi-envelope"></i> Email</a>
                     </div>
-                    <small>Typical response time: within 24 hours</small>
                 </div>
             </div>
 
             <form class="contact-form" id="contact-form" novalidate>
                 <div class="contact-form-intro">
-                    <span class="contact-form-kicker">Send an inquiry</span>
-                    <h2 id="contact-form-title">Tell me what you need.</h2>
+                    <h2 id="contact-form-title">Start a conversation</h2>
                     <p id="contact-form-description">Choose the option that best matches your message.</p>
                 </div>
                 <div class="inquiry-type-grid" role="radiogroup" aria-label="Inquiry type">
                     <label class="inquiry-type-option active">
                         <input type="radio" name="inquiryType" value="consultation" checked />
-                        <i class="bi bi-chat-square-text-fill"></i>
-                        <span><strong>Free Consultation</strong><small>90-minute discovery session</small></span>
+                        <span>Free Consultation</span>
                     </label>
                     <label class="inquiry-type-option">
                         <input type="radio" name="inquiryType" value="general" />
-                        <i class="bi bi-envelope-fill"></i>
-                        <span><strong>General Inquiry</strong><small>Questions and other messages</small></span>
+                        <span>General Inquiry</span>
                     </label>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label" for="cf-name">Your Name <span>*</span></label>
-                        <input type="text" id="cf-name" name="name" class="form-input" placeholder="Your name" required maxlength="80" />
+                        <input type="text" id="cf-name" name="name" class="form-input" placeholder="Your name" autocomplete="name" required maxlength="80" />
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="cf-contact">Telegram or Email <span>*</span></label>
@@ -398,29 +395,31 @@
                     </div>
                 </div>
                 <div id="consultation-fields">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label" for="cf-project-type">Project / Business</label>
-                            <input type="text" id="cf-project-type" name="projectType" class="form-input"
-                                placeholder="Product, workflow..." maxlength="120" />
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="cf-time">Preferred Time</label>
-                            <input type="text" id="cf-time" name="preferredTime" class="form-input"
-                                placeholder="Day and time" maxlength="120" />
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label class="form-label" for="cf-challenge">What would you like to discuss? <span>*</span></label>
                         <textarea id="cf-challenge" name="challenge" class="form-textarea"
                             placeholder="Briefly describe the problem, idea, or process..." maxlength="1500"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="cf-outcome">Expected Outcome</label>
-                        <textarea id="cf-outcome" name="outcome" class="form-textarea form-textarea-sm"
-                            placeholder="What would a useful result look like?" maxlength="800"></textarea>
-                    </div>
-                    <p class="consultation-note"><i class="bi bi-info-circle"></i> Your preferred time is a request and will be confirmed after review.</p>
+                    <details class="contact-extra-details">
+                        <summary>Additional details <span>Optional</span><i class="bi bi-chevron-down" aria-hidden="true"></i></summary>
+                        <div class="contact-extra-content">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="cf-project-type">Project / Business</label>
+                                    <input type="text" id="cf-project-type" name="projectType" class="form-input" placeholder="Product, workflow..." maxlength="120" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="cf-time">Preferred Time</label>
+                                    <input type="text" id="cf-time" name="preferredTime" class="form-input" placeholder="Day, time & timezone" maxlength="120" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cf-outcome">Expected Outcome</label>
+                                <textarea id="cf-outcome" name="outcome" class="form-textarea form-textarea-sm" placeholder="What would a useful result look like?" maxlength="800"></textarea>
+                            </div>
+                        </div>
+                    </details>
+                    <p class="consultation-note">Session time is confirmed after we connect.</p>
                 </div>
                 <div id="general-fields" hidden>
                     <div class="form-group">
@@ -434,13 +433,10 @@
                             placeholder="Write your message here..." maxlength="2000"></textarea>
                     </div>
                 </div>
-                <div class="form-honeypot" aria-hidden="true">
-                    <label for="cf-website">Website</label>
-                    <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off" />
-                </div>
                 <button type="submit" class="btn-primary contact-submit" id="contact-submit">
-                    <i class="bi bi-send"></i> <span>Request Free Consultation</span>
+                    <i class="bi bi-telegram"></i> <span>Continue on Telegram</span><i class="bi bi-arrow-up-right" aria-hidden="true"></i>
                 </button>
+                <p class="contact-send-note">Your message opens in Telegram, ready for you to send.</p>
                 <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"></p>
             </form>
         </div>
@@ -470,7 +466,7 @@
     </nav>
 
     <!-- Main JavaScript -->
-    <script src="js/main.js?v=11"></script>
+    <script src="js/main.js?v=12"></script>
 </body>
 
 </html>
