@@ -30,7 +30,7 @@
     </script>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css?v=13" />
+    <link rel="stylesheet" href="css/style.css?v=14" />
 </head>
 
 <body>
@@ -81,22 +81,25 @@
 
         <!-- WHAT I DO -->
         <section class="home-section">
-            <div class="section-title">What I Do</div>
+            <div class="home-section-heading">
+                <div class="section-title">What I Do</div>
+                <button type="button" class="home-text-link services-browse-link" onclick="openServices()">View services <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
+            </div>
             <div class="home-services-grid">
                 <article class="home-service-card">
                     <i class="bi bi-lightning-charge-fill"></i>
-                    <h2>AI Automation</h2>
-                    <p>Reliable workflows that connect tools, remove repetitive work, and keep information moving.</p>
-                </article>
-                <article class="home-service-card">
-                    <i class="bi bi-robot"></i>
-                    <h2>AI Agents &amp; Workflows</h2>
-                    <p>Context-aware agents for research, support, extraction, qualification, and operational tasks.</p>
+                    <h2>AI Services</h2>
+                    <p>Free 90-minute AI consulting, practical AI training, and automation workflow building.</p>
                 </article>
                 <article class="home-service-card">
                     <i class="bi bi-window-stack"></i>
-                    <h2>Web Applications</h2>
-                    <p>Focused web products and internal tools designed around real users and practical outcomes.</p>
+                    <h2>Website Development</h2>
+                    <p>Portfolio, product showcase, e-commerce, and custom websites and web applications.</p>
+                </article>
+                <article class="home-service-card">
+                    <i class="bi bi-pen"></i>
+                    <h2>Humanized Writing</h2>
+                    <p>Content writing, copywriting, and script writing in natural, audience-focused packages.</p>
                 </article>
             </div>
         </section>
@@ -172,7 +175,7 @@
                 <p>Tell me about the repetitive process, tool, or workflow you want to improve.</p>
             </div>
             <div class="home-cta-actions">
-                <button class="btn-primary" onclick="openContact('consultation')"><i class="bi bi-calendar-check-fill"></i> Book Free Consultation</button>
+                <button class="btn-primary" onclick="openContact('consultation')"><i class="bi bi-calendar-check-fill"></i> Book Free AI Consulting</button>
                 <a href="https://t.me/thecrashO" target="_blank" rel="noopener noreferrer" class="btn-outline"><i class="bi bi-telegram"></i> Telegram</a>
             </div>
         </section>
@@ -305,10 +308,63 @@
 
     <!-- STORE -->
     <div id="store" class="page">
-        <div class="section-title">My Products &amp; Services</div>
+        <div class="section-title">Services &amp; Products</div>
         <p class="store-page-intro">
-            Original resources, templates, and services created by ThecrashO.
+            Practical services for businesses and creators, alongside digital products and free resources.
         </p>
+
+        <section class="services-section" id="services" aria-labelledby="services-title">
+            <div class="services-section-heading">
+                <h2 id="services-title">How I can help</h2>
+                <p>Choose a service to discuss your requirements.</p>
+            </div>
+            <div class="services-list">
+                <article class="service-offering service-offering-consultation">
+                    <span class="service-number" aria-hidden="true">01</span>
+                    <div class="service-copy">
+                        <div class="service-heading"><h3>Free 90-Minute AI Consulting</h3><span class="service-free-badge">Free</span></div>
+                        <p>Explore how AI fits your business, identify useful automation opportunities, and plan practical next steps.</p>
+                        <small>90 minutes · Online · Discussion and recommendations</small>
+                    </div>
+                    <button type="button" class="service-action" onclick="openContact('consultation')">Request a session <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
+                </article>
+                <article class="service-offering">
+                    <span class="service-number" aria-hidden="true">02</span>
+                    <div class="service-copy">
+                        <h3>AI Training</h3>
+                        <p>Practical guidance on using AI tools, writing effective prompts, and applying AI to everyday business tasks.</p>
+                    </div>
+                    <button type="button" class="service-action" onclick="openContact('general', 'AI Training')">Discuss training <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
+                </article>
+                <article class="service-offering">
+                    <span class="service-number" aria-hidden="true">03</span>
+                    <div class="service-copy">
+                        <h3>AI Automation Workflow Building</h3>
+                        <p>Custom workflows that connect business tools and automate repetitive processes, from lead qualification to support and document processing.</p>
+                    </div>
+                    <button type="button" class="service-action" onclick="openContact('general', 'AI Automation Workflow Building')">Discuss a workflow <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
+                </article>
+                <article class="service-offering">
+                    <span class="service-number" aria-hidden="true">04</span>
+                    <div class="service-copy">
+                        <h3>Website Development</h3>
+                        <p>Personal portfolio, product showcase, and e-commerce websites, plus custom websites and useful web applications for your business or project.</p>
+                    </div>
+                    <button type="button" class="service-action" onclick="openContact('general', 'Website Development')">Discuss a website <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
+                </article>
+                <article class="service-offering">
+                    <span class="service-number" aria-hidden="true">05</span>
+                    <div class="service-copy">
+                        <h3>Humanized Writing Packages</h3>
+                        <p>Content writing, copywriting, and script writing with natural language, a clear purpose, and a voice that connects with your audience.</p>
+                        <small>Package scope is tailored to your writing needs.</small>
+                    </div>
+                    <button type="button" class="service-action" onclick="openContact('general', 'Humanized Writing Packages')">Discuss writing <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
+                </article>
+            </div>
+        </section>
+
+        <h2 class="products-section-heading">Digital Products &amp; Resources</h2>
 
         <div class="store-scope-card">
             <div class="store-scope-icon"><i class="bi bi-stars"></i></div>
@@ -352,7 +408,7 @@
                     <span class="contact-availability">LET’S TALK</span>
                     <h2>A clearer plan.<br>A better next step.</h2>
                     <p>Have an AI, automation, or product idea? Let’s talk through your challenge and find a practical way forward.</p>
-                    <div class="consultation-summary"><span>Free consultation</span><strong>90 min <span>· Online</span></strong></div>
+                    <div class="consultation-summary"><span>Free AI consulting</span><strong>90 min <span>· Online</span></strong></div>
                     <div class="consultation-points">
                         <div><i class="bi bi-check2"></i><span>Understand your challenge</span></div>
                         <div><i class="bi bi-check2"></i><span>Explore solutions and next steps</span></div>
@@ -466,7 +522,7 @@
     </nav>
 
     <!-- Main JavaScript -->
-    <script src="js/main.js?v=12"></script>
+    <script src="js/main.js?v=13"></script>
 </body>
 
 </html>

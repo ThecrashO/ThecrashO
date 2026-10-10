@@ -109,7 +109,7 @@ function setInquiryType(type = 'consultation') {
     if (submitLabel) submitLabel.textContent = 'Continue on Telegram';
     if (description) {
         description.textContent = isConsultation
-            ? 'Tell me about your idea or challenge to request a free session.'
+            ? 'Tell me about your business or challenge to request free 90-minute AI consulting.'
             : 'Have a question or something in mind? Leave a message.';
     }
 
@@ -125,11 +125,20 @@ function setInquiryType(type = 'consultation') {
     generalFields?.querySelectorAll('input, textarea').forEach((field) => { field.disabled = isConsultation; });
 }
 
-function openContact(type = 'general') {
+function openServices() {
+    navigate('store');
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function openContact(type = 'general', service = '') {
     navigate('contact');
     const radio = document.querySelector(`input[name="inquiryType"][value="${type}"]`);
     if (radio) radio.checked = true;
     setInquiryType(type);
+    const subject = document.getElementById('cf-subject');
+    if (subject && type === 'general') subject.value = service ? `Service inquiry: ${service}` : '';
+    const status = document.getElementById('contact-form-status');
+    if (status) status.textContent = '';
     window.setTimeout(() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
 }
 
@@ -144,7 +153,7 @@ function submitContactForm(event) {
 
     const text = payload.inquiryType === 'consultation'
         ? [
-            'Hi Pyae Sone! I would like to request a free 90-minute consultation.',
+            'Hi Pyae Sone! I would like to request Free 90-Minute AI Consulting.',
             '',
             `Name: ${payload.name}`,
             `Contact: ${payload.contact}`,
