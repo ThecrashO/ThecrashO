@@ -72,16 +72,16 @@
 [data-theme="light"] {
     color-scheme: light;
 
-    /* White + charcoal, with bright gold reserved for fills and highlights. */
-    --accent: #FFD700;
+    /* Monochrome UI; images keep their original colors. */
+    --accent: #171717;
     --accent-ink: #171717;
-    --accent-hover: #FFE44D;
-    --accent-dim: rgba(255, 215, 0, 0.14);
+    --accent-hover: #333333;
+    --accent-dim: rgba(23, 23, 23, 0.05);
     --accent-border: rgba(23, 23, 23, 0.24);
-    --accent-glow: rgba(255, 215, 0, 0.12);
+    --accent-glow: rgba(23, 23, 23, 0.08);
     --accent-shadow: rgba(23, 23, 23, 0.14);
 
-    --gold: #FFD700;
+    --gold: var(--accent);
     --gold-dim: var(--accent-dim);
     --gold-border: var(--accent-border);
 
@@ -313,17 +313,17 @@ body {
     filter: brightness(1.05);
 }
 
-/* Light theme: crisp charcoal text on bright-gold primary actions. */
+/* Light theme: white text on charcoal primary actions. */
 [data-theme="light"] .btn-primary,
 [data-theme="light"] .store-cta {
     background: var(--accent);
-    color: #171717;
+    color: #FFFFFF;
 }
 
 [data-theme="light"] .btn-primary:hover,
 [data-theme="light"] .store-cta:hover {
     background: var(--accent-hover);
-    color: #171717;
+    color: #FFFFFF;
 }
 
 [data-theme="light"] .btn-outline {
@@ -332,8 +332,8 @@ body {
 }
 
 [data-theme="light"] .btn-outline:hover {
-    background: rgba(255, 215, 0, 0.12);
-    border-color: #FFD700;
+    background: var(--accent-dim);
+    border-color: var(--accent);
 }
 
 [data-theme="light"] #darkToggle:hover,
@@ -344,23 +344,23 @@ body {
 [data-theme="light"] .currency-btn.active,
 [data-theme="light"] .filter-tag.active,
 [data-theme="light"] .copy-article-btn:hover {
-    color: #151515;
+    color: #FFFFFF;
 }
 
 [data-theme="light"] .nav-btn.active {
-    color: #171717;
+    color: #FFFFFF;
     background: var(--accent);
     font-weight: 700;
 }
 
 [data-theme="light"] .nav-btn.active i {
-    color: #171717;
+    color: #FFFFFF;
     filter: none;
 }
 
 [data-theme="light"] .filter-tag.active .filter-count {
-    background: rgba(21, 21, 21, 0.14);
-    color: #151515;
+    background: rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
 }
 
 .btn-outline {
@@ -1222,7 +1222,7 @@ body {
 
 [data-theme="light"] .home-tech-item > i {
     background: #171717;
-    color: #FFD700;
+    color: #FFFFFF;
     border-color: #171717;
 }
 
@@ -1330,7 +1330,7 @@ body {
 }
 
 [data-theme="light"] .home-community-icon {
-    color: #151515;
+    color: #FFFFFF;
 }
 
 .home-ecosystem-links {
@@ -2887,7 +2887,7 @@ body.modal-open #navbar {
 .contact-submit > .bi-arrow-up-right { margin-left: auto; }
 .contact-submit > .bi-telegram { margin-right: auto; }
 [data-theme="light"] .contact-submit,
-[data-theme="light"] .contact-submit:hover { background: var(--accent); color: #171717; }
+[data-theme="light"] .contact-submit:hover { background: var(--accent); color: #FFFFFF; }
 .contact-send-note { margin-top: 12px; color: var(--text-muted); font-size: 11px; line-height: 1.6; text-align: center; }
 .contact-form-status { margin-top: 12px; color: var(--text-muted); font-size: 12px; line-height: 1.5; }
 .contact-form-status:empty { display: none; }
@@ -3174,9 +3174,11 @@ body.modal-open #navbar {
 
 
 /* ============================================
-   LIGHT MODE — CRISP WHITE / CHARCOAL / GOLD
+   LIGHT MODE — WHITE / CHARCOAL MONOCHROME
    Keep these component overrides scoped so the dark theme stays unchanged.
    ============================================ */
+[data-theme="light"] :where(a) { color: var(--text); }
+
 [data-theme="light"] .hero-name,
 [data-theme="light"] .skill-modal-header h2,
 [data-theme="light"] .skill-detail-title {
@@ -3193,7 +3195,7 @@ body.modal-open #navbar {
 }
 
 [data-theme="light"] .nav-btn:hover { color: var(--text); }
-[data-theme="light"] .nav-btn.active:hover { background: var(--accent-hover); }
+[data-theme="light"] .nav-btn.active:hover { background: var(--accent-hover); color: #FFFFFF; }
 [data-theme="light"] #darkToggle { color: var(--text); background: var(--bg2); }
 [data-theme="light"] #darkToggle:hover { background: var(--accent); box-shadow: none; }
 
@@ -3212,7 +3214,35 @@ body.modal-open #navbar {
 }
 
 [data-theme="light"] :is(.project-case-open, .project-featured-badge) {
-    color: var(--accent);
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.28);
+}
+
+[data-theme="light"] .avatar-img {
+    animation: none;
+    box-shadow: 0 0 0 2px var(--accent-border), 0 8px 24px var(--accent-glow);
+}
+
+[data-theme="light"] :is(.skill-card, .store-cta, .project-card, .node-item, .skill-detail-item):hover {
+    box-shadow: var(--shadow-sm);
+}
+
+[data-theme="light"] .project-card::before {
+    background: linear-gradient(135deg, transparent, rgba(23, 23, 23, 0.04));
+}
+
+[data-theme="light"] .project-case-visual::after {
+    background: linear-gradient(145deg, transparent 55%, rgba(23, 23, 23, 0.08));
+}
+
+[data-theme="light"] .blog-author-avatar {
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+[data-theme="light"] .skill-node-center .node-item {
+    background: var(--accent);
+    color: #FFFFFF;
+    box-shadow: var(--shadow-sm);
 }
 
 [data-theme="light"] .form-input,
