@@ -22,7 +22,7 @@ function navigate(page, historyMode = 'push') {
     } else if (historyMode === 'push' && url !== window.location.pathname + window.location.search + window.location.hash) {
         history.pushState(null, '', url);
     }
-    document.title = page === 'home' ? 'ThecrashO — Generalist × Specialist (with AI)' : `${page === 'store' ? 'Services & Products' : 'Contact'} — ThecrashO`;
+    document.title = page === 'home' ? 'ThecrashO — Generalist × Specialist (with AI)' : `${page === 'store' ? 'Digital Products & Resources' : 'Contact'} — ThecrashO`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -109,34 +109,10 @@ setCurrency('both');
  * CONTACT FORM
  * ============================================
  */
-function setInquiryType(type = 'general') {
-    const isConsultation = type === 'consultation';
-    const note = document.getElementById('consultation-note');
-    if (note) note.hidden = !isConsultation;
-    const message = document.getElementById('cf-msg');
-    if (message) message.placeholder = isConsultation
-        ? 'Tell me about your business, challenge, or idea...'
-        : 'Write your message here...';
+function openContact() {
+    navigate('contact');
     const status = document.getElementById('contact-form-status');
     if (status) status.textContent = '';
-}
-
-function openServices() {
-    navigate('store');
-    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function openContact(type = 'general', service = '') {
-    navigate('contact');
-    const subject = document.getElementById('cf-subject');
-    if (subject) subject.value = type === 'consultation' ? 'consultation' : 'general';
-    setInquiryType(subject?.value);
-    const message = document.getElementById('cf-msg');
-    // Preserve drafts; only replace a previous, untouched service prefill.
-    if (message && (!message.value || message.value === message.dataset.prefill)) {
-        message.value = service ? `I would like to discuss ${service}.\n\n` : '';
-        message.dataset.prefill = message.value;
-    }
     window.setTimeout(() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
 }
 
@@ -147,21 +123,18 @@ function submitContactForm(event) {
     const status = document.getElementById('contact-form-status');
     const payload = Object.fromEntries(new FormData(form).entries());
 
-    ['name', 'contact', 'message'].forEach((name) => {
+    ['name', 'contact', 'subject', 'message'].forEach((name) => {
         const field = form.elements.namedItem(name);
         field.setCustomValidity(field.value.trim() ? '' : 'Please fill out this field.');
     });
     if (!form.reportValidity()) return;
 
-    const isConsultation = payload.subject === 'consultation';
     const text = [
-        isConsultation
-            ? 'Hi Pyae Sone! I would like to request Free 90-Minute AI Consulting.'
-            : 'Hi Pyae Sone! I have a general inquiry.',
+        'Hi Pyae Sone! I have a general inquiry.',
         '',
         `Name: ${payload.name.trim()}`,
         `Contact: ${payload.contact.trim()}`,
-        `Subject: ${isConsultation ? 'Free 90-Minute AI Consulting' : 'General Inquiry'}`,
+        `Subject: ${payload.subject.trim()}`,
         '',
         payload.message.trim()
     ].join('\n');
@@ -498,9 +471,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     const contactForm = document.getElementById('contact-form');
     contactForm?.addEventListener('submit', submitContactForm);
     contactForm?.addEventListener('input', (event) => event.target.setCustomValidity?.(''));
-    const subject = document.getElementById('cf-subject');
-    subject?.addEventListener('change', () => setInquiryType(subject.value));
-    setInquiryType(subject?.value);
     if (document.getElementById('home')) syncPageFromLocation();
 
     await renderSkills();

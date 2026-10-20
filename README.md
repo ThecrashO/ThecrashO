@@ -66,7 +66,7 @@ This static site uses Vercel's `vercel.json` routing configuration:
 * `/` — Home
 * `/projects` — Projects
 * `/paper` and `/paper?post=...` — Paper listing and articles
-* `/store` — Services & Products
+* `/store` — Digital Products & Resources (premium apps available on request)
 * `/contact` — Contact
 
 The Store and Contact routes serve `index.html`; JavaScript activates the correct section.

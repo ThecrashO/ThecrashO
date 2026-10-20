@@ -30,7 +30,7 @@
     </script>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/css/style.css?v=15" />
+    <link rel="stylesheet" href="/css/style.css?v=16" />
 </head>
 
 <body>
@@ -50,7 +50,7 @@
                     <a href="/projects" class="btn-primary">
                         <i class="bi bi-grid-3x3-gap-fill"></i> View Projects
                     </a>
-                    <button class="btn-outline" onclick="openContact('general')"><i class="bi bi-send"></i> Contact Me</button>
+                    <button class="btn-outline" onclick="openContact()"><i class="bi bi-send"></i> Contact Me</button>
                 </div>
                 <div class="hero-secondary-actions">
                     <a href="assets/docs/Pyae_Sone_Phyo_AI_Automation_CV.pdf" download class="hero-sub-link"><i class="bi bi-download"></i> Download CV</a>
@@ -79,30 +79,6 @@
             </a>
         </section>
 
-        <!-- WHAT I DO -->
-        <section class="home-section">
-            <div class="home-section-heading">
-                <div class="section-title">What I Do</div>
-                <button type="button" class="home-text-link services-browse-link" onclick="openServices()">View services <i class="bi bi-arrow-right" aria-hidden="true"></i></button>
-            </div>
-            <div class="home-services-grid">
-                <article class="home-service-card">
-                    <i class="bi bi-lightning-charge-fill"></i>
-                    <h2>AI Services</h2>
-                    <p>Free 90-minute AI consulting, practical AI training, and automation workflow building.</p>
-                </article>
-                <article class="home-service-card">
-                    <i class="bi bi-window-stack"></i>
-                    <h2>Website Development</h2>
-                    <p>Portfolio, product showcase, e-commerce, and custom websites and web applications.</p>
-                </article>
-                <article class="home-service-card">
-                    <i class="bi bi-pen"></i>
-                    <h2>Humanized Writing</h2>
-                    <p>Content writing, copywriting, and script writing in natural, audience-focused packages.</p>
-                </article>
-            </div>
-        </section>
 
         <!-- SELECTED PROJECTS -->
         <section class="home-section">
@@ -170,12 +146,12 @@
         <!-- FINAL CTA -->
         <section class="home-final-cta">
             <div>
-                <span class="home-cta-kicker">Have an automation idea?</span>
-                <h2>Let’s turn it into a working system.</h2>
-                <p>Tell me about the repetitive process, tool, or workflow you want to improve.</p>
+                <span class="home-cta-kicker">Get in touch</span>
+                <h2>Have a question or an idea?</h2>
+                <p>For questions, project ideas, or collaborations, send me a message.</p>
             </div>
             <div class="home-cta-actions">
-                <button class="btn-primary" onclick="openContact('consultation')"><i class="bi bi-calendar-check-fill"></i> Book Free AI Consulting</button>
+                <button class="btn-primary" onclick="openContact()"><i class="bi bi-send-fill"></i> Contact Me</button>
                 <a href="https://t.me/thecrashO" target="_blank" rel="noopener noreferrer" class="btn-outline"><i class="bi bi-telegram"></i> Telegram</a>
             </div>
         </section>
@@ -308,67 +284,10 @@
 
     <!-- STORE -->
     <div id="store" class="page">
-        <div class="section-title">Services &amp; Products</div>
+        <div class="section-title">Digital Products &amp; Resources</div>
         <p class="store-page-intro">
-            Practical services for businesses and creators, alongside digital products and free resources.
+            Premium app subscriptions, available on request.
         </p>
-
-        <section class="services-section" id="services" aria-labelledby="services-title">
-            <div class="services-section-heading">
-                <h2 id="services-title">How I can help</h2>
-                <p>Choose a service to discuss your requirements.</p>
-            </div>
-            <article class="service-consultation-banner">
-                <div class="service-icon" aria-hidden="true"><i class="bi bi-chat-square-text"></i></div>
-                <div class="service-copy">
-                    <h3>Free 90-Minute AI Consulting</h3>
-                    <p>Explore how AI fits your business, identify useful automation opportunities, and plan practical next steps.</p>
-                    <small>90 minutes · Online · Discussion and recommendations</small>
-                </div>
-                <button type="button" class="btn-primary service-consultation-cta" onclick="openContact('consultation')">Request a session <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
-            </article>
-            <div class="services-grid">
-                <article class="service-offering">
-                    <div class="service-icon" aria-hidden="true"><i class="bi bi-mortarboard"></i></div>
-                    <div class="service-copy">
-                        <h3>AI Training</h3>
-                        <p>Practical guidance on using AI tools, writing effective prompts, and applying AI to everyday business tasks.</p>
-                    </div>
-                    <div class="service-tags" aria-label="Training topics"><span>AI tools</span><span>Prompting</span><span>Business use</span></div>
-                    <button type="button" class="service-action" onclick="openContact('general', 'AI Training')">Discuss training <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
-                </article>
-                <article class="service-offering">
-                    <div class="service-icon" aria-hidden="true"><i class="bi bi-diagram-3"></i></div>
-                    <div class="service-copy">
-                        <h3>AI Automation Workflow Building</h3>
-                        <p>Custom workflows that connect business tools and automate repetitive processes, from lead qualification to support and document processing.</p>
-                    </div>
-                    <div class="service-tags" aria-label="Workflow areas"><span>Tool integration</span><span>Lead workflows</span><span>Document processing</span></div>
-                    <button type="button" class="service-action" onclick="openContact('general', 'AI Automation Workflow Building')">Discuss a workflow <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
-                </article>
-                <article class="service-offering">
-                    <div class="service-icon" aria-hidden="true"><i class="bi bi-window"></i></div>
-                    <div class="service-copy">
-                        <h3>Website Development</h3>
-                        <p>Personal portfolio, product showcase, and e-commerce websites, plus custom websites and useful web applications for your business or project.</p>
-                    </div>
-                    <div class="service-tags" aria-label="Website types"><span>Portfolio</span><span>E-commerce</span><span>Web apps</span></div>
-                    <button type="button" class="service-action" onclick="openContact('general', 'Website Development')">Discuss a website <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
-                </article>
-                <article class="service-offering">
-                    <div class="service-icon" aria-hidden="true"><i class="bi bi-pen"></i></div>
-                    <div class="service-copy">
-                        <h3>Humanized Writing Packages</h3>
-                        <p>Content writing, copywriting, and script writing with natural language, a clear purpose, and a voice that connects with your audience.</p>
-                    </div>
-                    <div class="service-tags" aria-label="Writing services"><span>Content</span><span>Copywriting</span><span>Scripts</span></div>
-                    <button type="button" class="service-action" onclick="openContact('general', 'Humanized Writing Packages')">Discuss writing <i class="bi bi-arrow-up-right" aria-hidden="true"></i></button>
-                </article>
-            </div>
-        </section>
-
-        <h2 class="products-section-heading">Digital Products &amp; Resources</h2>
-
         <div class="store-scope-card">
             <div class="store-scope-icon"><i class="bi bi-stars"></i></div>
             <div class="store-scope-content">
@@ -389,17 +308,6 @@
                 <i class="bi bi-telegram"></i> Ask on Telegram
             </a>
         </div>
-
-        <div class="currency-row">
-            <span class="currency-label">Show prices in:</span>
-            <div class="currency-toggle">
-                <button class="currency-btn active" id="btn-usd" onclick="setCurrency('usd')">USD $</button>
-                <button class="currency-btn" id="btn-mmk" onclick="setCurrency('mmk')">MMK K</button>
-                <button class="currency-btn" id="btn-both" onclick="setCurrency('both')">Both</button>
-            </div>
-        </div>
-
-        <div class="store-grid" id="store-items"></div>
     </div>
 
     <!-- CONTACT -->
@@ -426,7 +334,7 @@
                 </div>
                 <div class="contact-item">
                     <i class="bi bi-briefcase" aria-hidden="true"></i>
-                    <div><div class="contact-item-label">Open To</div><div class="contact-item-val">Projects · Collabs · Consults</div></div>
+                    <div><div class="contact-item-label">Open To</div><div class="contact-item-val">Projects · Collaborations</div></div>
                 </div>
             </div>
 
@@ -448,11 +356,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="cf-subject">Subject <span>*</span></label>
-                    <select id="cf-subject" name="subject" class="form-input" required aria-describedby="consultation-note">
-                        <option value="general">General Inquiry</option>
-                        <option value="consultation">Free 90-Minute AI Consulting</option>
-                    </select>
-                    <p class="consultation-note" id="consultation-note" hidden>Free online discussion and recommendations. Session time is confirmed after we connect; implementation is a separate service.</p>
+                    <input type="text" id="cf-subject" name="subject" class="form-input" placeholder="What is your message about?" required maxlength="120" />
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="cf-msg">Message <span>*</span></label>
@@ -491,7 +395,7 @@
     </nav>
 
     <!-- Main JavaScript -->
-    <script src="/js/main.js?v=14"></script>
+    <script src="/js/main.js?v=15"></script>
 </body>
 
 </html>
