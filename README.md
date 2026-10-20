@@ -83,4 +83,4 @@ Portfolio: https://thecrasho.com
 
 GitHub: https://github.com/ThecrashO
 
-Telegram: https://t.me/thecrashO_Official
+Telegram: https://t.me/thecrashoai
