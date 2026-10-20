@@ -89,7 +89,8 @@
         "tag": "Web",
         "tagIcon": "bi-code-square",
         "categories": ["web"],
-        "image": "assets/images/projects/Portfolio Website.png",
+        "image": "assets/images/projects/Portfolio Website v2.png",
+        "imageFit": "contain",
         "desc": "Connects projects, technical writing, learning resources, and services in one personal creator hub.",
         "stack": ["HTML", "CSS", "JavaScript", "JSON"],
         "impact": { "value": "5", "label": "connected sections" },
@@ -127,6 +128,7 @@
     },
     {
         "id": "publio",
+        "hidden": true,
         "title": "Publio",
         "tag": "Web App",
         "tagIcon": "bi-share-fill",
@@ -148,6 +150,7 @@
     },
     {
         "id": "crash-archi",
+        "hidden": true,
         "title": "Crash-Archi Workspace",
         "tag": "AI System",
         "tagIcon": "bi-diagram-3",

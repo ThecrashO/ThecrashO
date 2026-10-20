@@ -61,6 +61,12 @@ I don't build with AI just because it is available. I look for useful problems w
 
 ## Local preview and routing
 
+To temporarily hide a project, set `"hidden": true` on its entry in
+`data/projects.json`. This excludes it from the Projects page, filter counts,
+and Home highlights without deleting its data or image. Remove the flag or set
+it to `false` to display it again. This is display control, not private storage;
+the static JSON and image files remain publicly accessible.
+
 This static site uses Vercel's `vercel.json` routing configuration:
 
 * `/` — Home

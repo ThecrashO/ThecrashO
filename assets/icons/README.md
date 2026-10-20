@@ -1,19 +1,27 @@
 # ThecrashO app icons
 
 The white emblem and black background come from the owner's supplied artwork.
-`logo-source.png` preserves the original file. Production icons use a centered
-480-by-480 crop of the 640-by-640 source, resized without redrawing the emblem.
+`logo-source.png` preserves the original file. The active v2 Home Screen icons
+resize the full 640-by-640 source without cropping or redrawing the emblem.
+This keeps the O at approximately 39% of the tile width, matching the owner's
+rounded preview reference, instead of the previous approximately 53% sizing.
 
 ## Files
 
-- `app-icon-512.png`: opaque square master and large web-app icon.
-- `app-icon-192.png`: opaque square web-app icon.
-- `app-icon-maskable-512.png`: opaque square with the emblem inside the central
+- `app-icon-512-v2.png`: active opaque square master and large web-app icon.
+- `app-icon-192-v2.png`: active opaque square web-app icon.
+- `app-icon-maskable-512-v2.png`: opaque square with the emblem inside the central
   mask-safe area for Android launcher shapes.
-- `apple-touch-icon.png`: opaque 180-by-180 Home Screen icon.
-- `favicon-32.png` and `favicon-16.png`: browser tab icons.
+- `apple-touch-icon-v2.png`: active opaque 180-by-180 Home Screen icon.
+- `favicon-32.png` and `favicon-16.png`: unchanged browser tab icons, retaining
+  the larger mark so it stays legible at tiny sizes.
 - `app-icon-rounded-preview.png`: rounded-corner visual preview only; not the
   installed launcher asset.
+
+The previous files without `-v2` are retained for rollback but are no longer
+referenced as Home Screen icons. The manifest URL is versioned while its app ID
+stays `/`. No new AI generation was used for the v2 size adjustment; only the
+existing export spacing changed.
 
 Production Home Screen icons intentionally have full square backgrounds. The
 operating system applies its own rounded-square or other launcher mask so there

@@ -269,6 +269,11 @@ async function renderStore() {
 
 let projectManifest = [];
 
+// Keep unpublished projects in the manifest without displaying them on the site.
+function isProjectVisible(project) {
+    return project.hidden !== true;
+}
+
 function projectLinksHTML(project, modalClass = '') {
     return Object.entries(project.links || {}).map(([key, value]) => {
         const label = key === 'github'   ? 'GitHub'
@@ -304,14 +309,14 @@ async function renderHomeHighlights() {
         try {
             const res = await fetch('data/projects.json', { cache: 'no-store' });
             if (!res.ok) throw new Error('Could not load selected projects');
-            const projects = await res.json();
+            const projects = (await res.json()).filter(isProjectVisible);
             const selected = projects.filter((project) => project.featured).concat(projects.filter((project) => !project.featured)).slice(0, 2);
 
             projectsEl.innerHTML = selected.map((project) => {
                 const href = projectPrimaryLink(project);
                 const stack = (project.stack || []).slice(0, 3).map((item) => `<span>${item}</span>`).join('');
                 return `
-                    <article class="home-project-card">
+                    <article class="home-project-card" data-project-id="${project.id}">
                         <a href="${href}" target="_blank" rel="noopener noreferrer" class="home-project-image${project.imageFit === 'contain' ? ' image-contain' : ''}" aria-label="Open ${project.title}">
                             <img src="${project.image}" alt="${project.title} project screenshot" loading="lazy">
                         </a>
@@ -410,7 +415,7 @@ async function renderProjects() {
     try {
         const res = await fetch('data/projects.json', { cache: 'no-store' });
         if (!res.ok) throw new Error('Could not load project manifest');
-        const projects = await res.json();
+        const projects = (await res.json()).filter(isProjectVisible);
         projectManifest = projects;
 
         container.innerHTML = projects.map((project, index) => {
